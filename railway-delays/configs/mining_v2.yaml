@@ -1,0 +1,51 @@
+# PROPOSED v2 parameter, calibrated on 2024-01-01..2024-10-31 only (observable data, no ground truth).
+G_lead: 8.0
+window:
+- '2024-01-01'
+- '2024-10-31'
+curve:
+- gap: '[0, 2)'
+  not_faster_leader: 0.0014
+  faster_leader: 0.0019
+  effect: 0.0005
+  n_faster: 76792
+- gap: '[2, 4)'
+  not_faster_leader: 0.0039
+  faster_leader: 0.0154
+  effect: 0.0115
+  n_faster: 29830
+- gap: '[4, 6)'
+  not_faster_leader: 0.0277
+  faster_leader: 0.0802
+  effect: 0.0525
+  n_faster: 64724
+- gap: '[6, 8)'
+  not_faster_leader: 0.0037
+  faster_leader: 0.1809
+  effect: 0.1773
+  n_faster: 35723
+- gap: '[8, 10)'
+  not_faster_leader: 0.0026
+  faster_leader: 0.0044
+  effect: 0.0018
+  n_faster: 24566
+- gap: '[10, 15)'
+  not_faster_leader: 0.0026
+  faster_leader: 0.0035
+  effect: 0.0009
+  n_faster: 60071
+- gap: '[15, 20)'
+  not_faster_leader: 0.0031
+  faster_leader: 0.0036
+  effect: 0.0005
+  n_faster: 45880
+- gap: '[20, 30)'
+  not_faster_leader: 0.0035
+  faster_leader: 0.0033
+  effect: -0.0001
+  n_faster: 81119
+- gap: '[30, 60)'
+  not_faster_leader: 0.0047
+  faster_leader: 0.0044
+  effect: -0.0003
+  n_faster: 88271

@@ -1,0 +1,30 @@
+# Environment
+.venv/
+venv/
+
+# Data (large / regenerable)
+data/raw/
+data/processed/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.h5
+*.safetensors
+models/checkpoints/
+checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
