@@ -1,0 +1,37 @@
+# FROZEN mining parameters: calibrated on 2024-01-01..2024-10-31 only (SIMULATED data); never re-estimated.
+window:
+- '2024-01-01'
+- '2024-10-31'
+source: decision window only
+L_late: 5.0
+A_link: 2.0
+P: 15.0
+T_entry: 15.0
+R_min: 5.0
+G: 6.0
+G_rake: 180.0
+slack_fraction:
+  Rajdhani: 0.05
+  Superfast: 0.06
+  Duronto: 0.05
+  Shatabdi: 0.06
+  Mail/Express: 0.07
+  other: 0.06
+  Passenger: 0.08
+  _halt: 0.5
+slack_fit_passages: 155756
+communities:
+  k: 10
+  linkage: average
+  deseason: true
+  louvain_tau: 0.5
+  silhouette:
+    2: 0.1858
+    3: 0.2692
+    4: 0.3149
+    5: 0.3319
+    6: 0.3535
+    7: 0.3628
+    8: 0.3784
+    9: 0.4007
+    10: 0.4137

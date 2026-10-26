@@ -1,0 +1,41 @@
+# The ONE place where the time split and the simulated data sources are defined.
+# All date-range functions and build scripts read this file (via src/splits.py).
+# All delay data is SIMULATED.
+splits:
+  train: [2024-01-01, 2025-08-31]        # all of 2024 + Jan-Aug 2025
+  validation: [2025-09-01, 2025-10-31]
+  test: [2025-11-01, 2025-12-31]
+  analysis_all_2025: [2025-01-01, 2025-12-31]   # analysis only, never for training
+
+# Each source is one simulation run and may only supply rows whose actual event time lies in [start, end].
+# (A run entering on the last day of a source keeps running past `end`; those later rows are dropped so that
+# two sources never overlap in time.)
+scenarios:
+  medium:
+    sources:
+      - {dir: data/processed/sim/medium_2024, start: 2024-01-01, end: 2024-12-31, seed: 2024}
+      - {dir: data/processed/sim/medium, start: 2025-01-01, end: 2025-12-31, seed: 42}
+  # Reserved scenarios: used only for robustness checks of a frozen pipeline (Phase 5 item 9), never for tuning.
+  low:
+    sources:
+      - {dir: data/processed/sim/low, start: 2025-01-01, end: 2025-12-31, seed: 42}
+  high:
+    sources:
+      - {dir: data/processed/sim/high, start: 2025-01-01, end: 2025-12-31, seed: 42}
+
+# Rolling-origin validation (model selection must use the MEAN over both folds; fog is also reported separately).
+# fold 1 validates on the fog season of 2024 (12 fog days: Nov 2, Dec 10); fold 2 validates on Sep-Oct 2025 (no fog).
+folds:
+  fold1_fog:
+    train: [2024-01-01, 2024-10-31]
+    validate: [2024-11-01, 2024-12-31]
+  fold2_clear:
+    train: [2024-01-01, 2025-08-31]
+    validate: [2025-09-01, 2025-10-31]
+
+# Phase 4 (EDA) rule: decisions about modelling use only the first fold's training range; everything else in the
+# training window is for descriptive plots only. The test window is never used.
+eda:
+  decision: [2024-01-01, 2024-10-31]
+  descriptive: [2024-01-01, 2025-08-31]
+
