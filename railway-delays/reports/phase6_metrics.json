@@ -1,0 +1,3044 @@
+{
+  "validation_lgbm": {
+    "horizons": {
+      "1h": {
+        "persistence": {
+          "n": 219409,
+          "mae": 2.756,
+          "rmse": 5.891,
+          "r2": 0.9083,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 219409,
+          "mae": 10.969,
+          "rmse": 17.615,
+          "r2": 0.1804,
+          "improvement_pct": -297.94
+        },
+        "model": {
+          "overall": {
+            "n": 219409,
+            "mae": 2.866,
+            "rmse": 5.187,
+            "r2": 0.9289,
+            "improvement_pct": -3.98
+          },
+          "weather": {
+            "non_fog": {
+              "n": 219409,
+              "mae": 2.866,
+              "rmse": 5.187,
+              "r2": 0.9289,
+              "improvement_pct": -3.98
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 2182,
+              "mae": 3.772,
+              "rmse": 6.326,
+              "r2": 0.9696,
+              "improvement_pct": 3.56
+            },
+            "Mail/Express": {
+              "n": 49293,
+              "mae": 3.009,
+              "rmse": 5.368,
+              "r2": 0.9229,
+              "improvement_pct": -4.02
+            },
+            "Shatabdi": {
+              "n": 3245,
+              "mae": 4.196,
+              "rmse": 7.289,
+              "r2": 0.925,
+              "improvement_pct": 16.55
+            },
+            "Superfast": {
+              "n": 119858,
+              "mae": 2.879,
+              "rmse": 5.177,
+              "r2": 0.9341,
+              "improvement_pct": -1.78
+            },
+            "Duronto": {
+              "n": 11735,
+              "mae": 2.285,
+              "rmse": 4.377,
+              "r2": 0.9243,
+              "improvement_pct": -13.56
+            },
+            "Rajdhani": {
+              "n": 30979,
+              "mae": 2.612,
+              "rmse": 4.883,
+              "r2": 0.8878,
+              "improvement_pct": -16.95
+            },
+            "Passenger": {
+              "n": 2117,
+              "mae": 2.791,
+              "rmse": 4.728,
+              "r2": 0.7739,
+              "improvement_pct": -6.87
+            }
+          }
+        }
+      },
+      "2h": {
+        "persistence": {
+          "n": 192837,
+          "mae": 4.893,
+          "rmse": 10.128,
+          "r2": 0.7481,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 192837,
+          "mae": 11.391,
+          "rmse": 17.963,
+          "r2": 0.2075,
+          "improvement_pct": -132.81
+        },
+        "model": {
+          "overall": {
+            "n": 192837,
+            "mae": 5.226,
+            "rmse": 8.618,
+            "r2": 0.8176,
+            "improvement_pct": -6.82
+          },
+          "weather": {
+            "non_fog": {
+              "n": 192837,
+              "mae": 5.226,
+              "rmse": 8.618,
+              "r2": 0.8176,
+              "improvement_pct": -6.82
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1781,
+              "mae": 7.512,
+              "rmse": 11.477,
+              "r2": 0.9059,
+              "improvement_pct": 6.11
+            },
+            "Mail/Express": {
+              "n": 42639,
+              "mae": 5.282,
+              "rmse": 8.703,
+              "r2": 0.81,
+              "improvement_pct": -4.85
+            },
+            "Shatabdi": {
+              "n": 2631,
+              "mae": 8.307,
+              "rmse": 13.133,
+              "r2": 0.7868,
+              "improvement_pct": 24.13
+            },
+            "Superfast": {
+              "n": 106965,
+              "mae": 5.261,
+              "rmse": 8.642,
+              "r2": 0.8289,
+              "improvement_pct": -5.82
+            },
+            "Duronto": {
+              "n": 10157,
+              "mae": 4.551,
+              "rmse": 7.981,
+              "r2": 0.7545,
+              "improvement_pct": -12.9
+            },
+            "Rajdhani": {
+              "n": 26906,
+              "mae": 4.871,
+              "rmse": 7.924,
+              "r2": 0.7279,
+              "improvement_pct": -23.61
+            },
+            "Passenger": {
+              "n": 1758,
+              "mae": 4.214,
+              "rmse": 6.781,
+              "r2": 0.5592,
+              "improvement_pct": -6.94
+            }
+          }
+        }
+      },
+      "3h": {
+        "persistence": {
+          "n": 166904,
+          "mae": 6.792,
+          "rmse": 13.793,
+          "r2": 0.5775,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 166904,
+          "mae": 11.959,
+          "rmse": 18.537,
+          "r2": 0.2369,
+          "improvement_pct": -76.07
+        },
+        "model": {
+          "overall": {
+            "n": 166904,
+            "mae": 7.235,
+            "rmse": 11.536,
+            "r2": 0.7045,
+            "improvement_pct": -6.52
+          },
+          "weather": {
+            "non_fog": {
+              "n": 166904,
+              "mae": 7.235,
+              "rmse": 11.536,
+              "r2": 0.7045,
+              "improvement_pct": -6.52
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1397,
+              "mae": 11.808,
+              "rmse": 17.1,
+              "r2": 0.809,
+              "improvement_pct": 13.1
+            },
+            "Mail/Express": {
+              "n": 35468,
+              "mae": 7.036,
+              "rmse": 11.295,
+              "r2": 0.7062,
+              "improvement_pct": -4.07
+            },
+            "Shatabdi": {
+              "n": 1948,
+              "mae": 12.913,
+              "rmse": 19.37,
+              "r2": 0.5988,
+              "improvement_pct": 25.17
+            },
+            "Superfast": {
+              "n": 94220,
+              "mae": 7.342,
+              "rmse": 11.759,
+              "r2": 0.7137,
+              "improvement_pct": -6.12
+            },
+            "Duronto": {
+              "n": 8840,
+              "mae": 6.526,
+              "rmse": 10.95,
+              "r2": 0.5945,
+              "improvement_pct": -5.8
+            },
+            "Rajdhani": {
+              "n": 23758,
+              "mae": 6.692,
+              "rmse": 9.954,
+              "r2": 0.6113,
+              "improvement_pct": -24.64
+            },
+            "Passenger": {
+              "n": 1273,
+              "mae": 6.152,
+              "rmse": 9.15,
+              "r2": 0.3065,
+              "improvement_pct": -8.33
+            }
+          }
+        }
+      },
+      "4h": {
+        "persistence": {
+          "n": 142530,
+          "mae": 8.46,
+          "rmse": 16.928,
+          "r2": 0.4245,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 142530,
+          "mae": 12.519,
+          "rmse": 19.157,
+          "r2": 0.263,
+          "improvement_pct": -47.98
+        },
+        "model": {
+          "overall": {
+            "n": 142530,
+            "mae": 8.958,
+            "rmse": 13.846,
+            "r2": 0.615,
+            "improvement_pct": -5.89
+          },
+          "weather": {
+            "non_fog": {
+              "n": 142530,
+              "mae": 8.958,
+              "rmse": 13.846,
+              "r2": 0.615,
+              "improvement_pct": -5.89
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1162,
+              "mae": 15.949,
+              "rmse": 21.464,
+              "r2": 0.7234,
+              "improvement_pct": 11.78
+            },
+            "Mail/Express": {
+              "n": 29032,
+              "mae": 8.027,
+              "rmse": 12.899,
+              "r2": 0.6284,
+              "improvement_pct": -3.26
+            },
+            "Shatabdi": {
+              "n": 1399,
+              "mae": 17.103,
+              "rmse": 23.898,
+              "r2": 0.4965,
+              "improvement_pct": 25.88
+            },
+            "Superfast": {
+              "n": 82111,
+              "mae": 9.277,
+              "rmse": 14.408,
+              "r2": 0.6139,
+              "improvement_pct": -6.25
+            },
+            "Duronto": {
+              "n": 7611,
+              "mae": 8.285,
+              "rmse": 13.11,
+              "r2": 0.5057,
+              "improvement_pct": -1.58
+            },
+            "Rajdhani": {
+              "n": 20391,
+              "mae": 8.367,
+              "rmse": 11.557,
+              "r2": 0.5455,
+              "improvement_pct": -20.69
+            },
+            "Passenger": {
+              "n": 824,
+              "mae": 7.166,
+              "rmse": 9.973,
+              "r2": 0.282,
+              "improvement_pct": 7.53
+            }
+          }
+        }
+      },
+      "5h": {
+        "persistence": {
+          "n": 119883,
+          "mae": 10.022,
+          "rmse": 19.784,
+          "r2": 0.2919,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 119883,
+          "mae": 13.094,
+          "rmse": 19.741,
+          "r2": 0.295,
+          "improvement_pct": -30.65
+        },
+        "model": {
+          "overall": {
+            "n": 119883,
+            "mae": 10.292,
+            "rmse": 15.639,
+            "r2": 0.5575,
+            "improvement_pct": -2.69
+          },
+          "weather": {
+            "non_fog": {
+              "n": 119883,
+              "mae": 10.292,
+              "rmse": 15.639,
+              "r2": 0.5575,
+              "improvement_pct": -2.69
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1004,
+              "mae": 19.365,
+              "rmse": 25.905,
+              "r2": 0.6189,
+              "improvement_pct": 8.21
+            },
+            "Mail/Express": {
+              "n": 23798,
+              "mae": 8.888,
+              "rmse": 14.323,
+              "r2": 0.5397,
+              "improvement_pct": -4.23
+            },
+            "Shatabdi": {
+              "n": 736,
+              "mae": 24.06,
+              "rmse": 29.099,
+              "r2": 0.4328,
+              "improvement_pct": 34.72
+            },
+            "Superfast": {
+              "n": 70221,
+              "mae": 10.841,
+              "rmse": 16.594,
+              "r2": 0.5447,
+              "improvement_pct": -3.41
+            },
+            "Duronto": {
+              "n": 6395,
+              "mae": 9.128,
+              "rmse": 13.77,
+              "r2": 0.5708,
+              "improvement_pct": 11.38
+            },
+            "Rajdhani": {
+              "n": 17215,
+              "mae": 9.368,
+              "rmse": 12.128,
+              "r2": 0.5655,
+              "improvement_pct": -12.86
+            },
+            "Passenger": {
+              "n": 514,
+              "mae": 8.379,
+              "rmse": 10.936,
+              "r2": 0.2451,
+              "improvement_pct": 19.74
+            }
+          }
+        }
+      },
+      "6h": {
+        "persistence": {
+          "n": 96535,
+          "mae": 11.554,
+          "rmse": 22.608,
+          "r2": 0.1879,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 96535,
+          "mae": 13.715,
+          "rmse": 20.34,
+          "r2": 0.3426,
+          "improvement_pct": -18.7
+        },
+        "model": {
+          "overall": {
+            "n": 96535,
+            "mae": 11.576,
+            "rmse": 17.316,
+            "r2": 0.5236,
+            "improvement_pct": -0.19
+          },
+          "weather": {
+            "non_fog": {
+              "n": 96535,
+              "mae": 11.576,
+              "rmse": 17.316,
+              "r2": 0.5236,
+              "improvement_pct": -0.19
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 841,
+              "mae": 22.439,
+              "rmse": 29.993,
+              "r2": 0.5257,
+              "improvement_pct": 6.84
+            },
+            "Mail/Express": {
+              "n": 19365,
+              "mae": 9.631,
+              "rmse": 15.452,
+              "r2": 0.5161,
+              "improvement_pct": -1.57
+            },
+            "Shatabdi": {
+              "n": 220,
+              "mae": 24.294,
+              "rmse": 28.562,
+              "r2": 0.2908,
+              "improvement_pct": 67.66
+            },
+            "Superfast": {
+              "n": 57352,
+              "mae": 12.396,
+              "rmse": 18.615,
+              "r2": 0.4935,
+              "improvement_pct": -2.55
+            },
+            "Duronto": {
+              "n": 4983,
+              "mae": 10.364,
+              "rmse": 15.128,
+              "r2": 0.5869,
+              "improvement_pct": 16.49
+            },
+            "Rajdhani": {
+              "n": 13563,
+              "mae": 10.481,
+              "rmse": 13.126,
+              "r2": 0.5765,
+              "improvement_pct": -3.84
+            },
+            "Passenger": {
+              "n": 211,
+              "mae": 9.594,
+              "rmse": 12.519,
+              "r2": 0.1441,
+              "improvement_pct": 32.19
+            }
+          }
+        }
+      }
+    },
+    "macro_avg": {
+      "model_mae": 7.692,
+      "persistence_mae": 7.413,
+      "historical_mae": 12.275,
+      "overall_improvement_vs_persistence_pct": -3.77
+    }
+  },
+  "test_lgbm": {
+    "horizons": {
+      "1h": {
+        "persistence": {
+          "n": 219383,
+          "mae": 3.707,
+          "rmse": 7.222,
+          "r2": 0.9521,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 219383,
+          "mae": 15.749,
+          "rmse": 30.393,
+          "r2": 0.1513,
+          "improvement_pct": -324.89
+        },
+        "model": {
+          "overall": {
+            "n": 219383,
+            "mae": 3.567,
+            "rmse": 7.302,
+            "r2": 0.951,
+            "improvement_pct": 3.78
+          },
+          "weather": {
+            "fog": {
+              "n": 35510,
+              "mae": 5.421,
+              "rmse": 12.052,
+              "r2": 0.9414,
+              "improvement_pct": 13.73
+            },
+            "non_fog": {
+              "n": 183873,
+              "mae": 3.208,
+              "rmse": 5.963,
+              "r2": 0.9461,
+              "improvement_pct": 0.02
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 2188,
+              "mae": 4.569,
+              "rmse": 7.967,
+              "r2": 0.9687,
+              "improvement_pct": -0.23
+            },
+            "Mail/Express": {
+              "n": 49293,
+              "mae": 3.632,
+              "rmse": 6.222,
+              "r2": 0.9597,
+              "improvement_pct": 5.66
+            },
+            "Shatabdi": {
+              "n": 3259,
+              "mae": 4.595,
+              "rmse": 7.956,
+              "r2": 0.9538,
+              "improvement_pct": 22.84
+            },
+            "Superfast": {
+              "n": 119886,
+              "mae": 3.63,
+              "rmse": 8.114,
+              "r2": 0.9462,
+              "improvement_pct": 2.87
+            },
+            "Duronto": {
+              "n": 11726,
+              "mae": 2.827,
+              "rmse": 5.386,
+              "r2": 0.9566,
+              "improvement_pct": 8.48
+            },
+            "Rajdhani": {
+              "n": 30921,
+              "mae": 3.349,
+              "rmse": 6.114,
+              "r2": 0.9566,
+              "improvement_pct": -0.17
+            },
+            "Passenger": {
+              "n": 2110,
+              "mae": 3.095,
+              "rmse": 5.049,
+              "r2": 0.892,
+              "improvement_pct": -2.83
+            }
+          }
+        }
+      },
+      "2h": {
+        "persistence": {
+          "n": 193458,
+          "mae": 6.967,
+          "rmse": 13.044,
+          "r2": 0.8526,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 193458,
+          "mae": 16.404,
+          "rmse": 30.862,
+          "r2": 0.1751,
+          "improvement_pct": -135.45
+        },
+        "model": {
+          "overall": {
+            "n": 193458,
+            "mae": 6.456,
+            "rmse": 11.158,
+            "r2": 0.8922,
+            "improvement_pct": 7.34
+          },
+          "weather": {
+            "fog": {
+              "n": 31578,
+              "mae": 9.677,
+              "rmse": 16.313,
+              "r2": 0.8947,
+              "improvement_pct": 25.3
+            },
+            "non_fog": {
+              "n": 161880,
+              "mae": 5.827,
+              "rmse": 9.842,
+              "r2": 0.86,
+              "improvement_pct": -0.49
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1788,
+              "mae": 8.591,
+              "rmse": 12.93,
+              "r2": 0.9236,
+              "improvement_pct": 9.36
+            },
+            "Mail/Express": {
+              "n": 42821,
+              "mae": 6.414,
+              "rmse": 10.295,
+              "r2": 0.896,
+              "improvement_pct": 8.63
+            },
+            "Shatabdi": {
+              "n": 2652,
+              "mae": 8.967,
+              "rmse": 13.878,
+              "r2": 0.8748,
+              "improvement_pct": 31.35
+            },
+            "Superfast": {
+              "n": 107232,
+              "mae": 6.53,
+              "rmse": 11.7,
+              "r2": 0.8941,
+              "improvement_pct": 6.29
+            },
+            "Duronto": {
+              "n": 10224,
+              "mae": 5.48,
+              "rmse": 9.293,
+              "r2": 0.8796,
+              "improvement_pct": 13.97
+            },
+            "Rajdhani": {
+              "n": 26986,
+              "mae": 6.313,
+              "rmse": 10.676,
+              "r2": 0.8718,
+              "improvement_pct": 2.39
+            },
+            "Passenger": {
+              "n": 1755,
+              "mae": 4.835,
+              "rmse": 7.473,
+              "r2": 0.7841,
+              "improvement_pct": 3.24
+            }
+          }
+        }
+      },
+      "3h": {
+        "persistence": {
+          "n": 167759,
+          "mae": 10.096,
+          "rmse": 18.535,
+          "r2": 0.7271,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 167759,
+          "mae": 17.294,
+          "rmse": 31.813,
+          "r2": 0.196,
+          "improvement_pct": -71.29
+        },
+        "model": {
+          "overall": {
+            "n": 167759,
+            "mae": 8.969,
+            "rmse": 14.799,
+            "r2": 0.826,
+            "improvement_pct": 11.16
+          },
+          "weather": {
+            "fog": {
+              "n": 27442,
+              "mae": 13.27,
+              "rmse": 20.334,
+              "r2": 0.8432,
+              "improvement_pct": 33.07
+            },
+            "non_fog": {
+              "n": 140317,
+              "mae": 8.128,
+              "rmse": 13.453,
+              "r2": 0.7603,
+              "improvement_pct": 0.79
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1400,
+              "mae": 13.561,
+              "rmse": 19.283,
+              "r2": 0.849,
+              "improvement_pct": 14.51
+            },
+            "Mail/Express": {
+              "n": 35808,
+              "mae": 8.631,
+              "rmse": 13.665,
+              "r2": 0.8324,
+              "improvement_pct": 11.25
+            },
+            "Shatabdi": {
+              "n": 1987,
+              "mae": 13.949,
+              "rmse": 21.214,
+              "r2": 0.7392,
+              "improvement_pct": 33.8
+            },
+            "Superfast": {
+              "n": 94602,
+              "mae": 9.09,
+              "rmse": 15.224,
+              "r2": 0.8356,
+              "improvement_pct": 10.12
+            },
+            "Duronto": {
+              "n": 8917,
+              "mae": 7.823,
+              "rmse": 12.7,
+              "r2": 0.7875,
+              "improvement_pct": 20.18
+            },
+            "Rajdhani": {
+              "n": 23773,
+              "mae": 8.866,
+              "rmse": 14.733,
+              "r2": 0.7673,
+              "improvement_pct": 7.44
+            },
+            "Passenger": {
+              "n": 1272,
+              "mae": 6.613,
+              "rmse": 9.541,
+              "r2": 0.7,
+              "improvement_pct": 11.15
+            }
+          }
+        }
+      },
+      "4h": {
+        "persistence": {
+          "n": 143859,
+          "mae": 13.134,
+          "rmse": 23.818,
+          "r2": 0.5925,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 143859,
+          "mae": 18.247,
+          "rmse": 32.931,
+          "r2": 0.221,
+          "improvement_pct": -38.93
+        },
+        "model": {
+          "overall": {
+            "n": 143859,
+            "mae": 11.222,
+            "rmse": 18.119,
+            "r2": 0.7642,
+            "improvement_pct": 14.56
+          },
+          "weather": {
+            "fog": {
+              "n": 23717,
+              "mae": 16.776,
+              "rmse": 24.404,
+              "r2": 0.7851,
+              "improvement_pct": 37.06
+            },
+            "non_fog": {
+              "n": 120142,
+              "mae": 10.125,
+              "rmse": 16.6,
+              "r2": 0.6719,
+              "improvement_pct": 3.24
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1173,
+              "mae": 19.412,
+              "rmse": 24.931,
+              "r2": 0.7664,
+              "improvement_pct": 12.35
+            },
+            "Mail/Express": {
+              "n": 29360,
+              "mae": 10.218,
+              "rmse": 16.396,
+              "r2": 0.7745,
+              "improvement_pct": 12.34
+            },
+            "Shatabdi": {
+              "n": 1430,
+              "mae": 17.772,
+              "rmse": 26.019,
+              "r2": 0.6684,
+              "improvement_pct": 39.38
+            },
+            "Superfast": {
+              "n": 82785,
+              "mae": 11.49,
+              "rmse": 18.582,
+              "r2": 0.7778,
+              "improvement_pct": 13.25
+            },
+            "Duronto": {
+              "n": 7738,
+              "mae": 10.007,
+              "rmse": 15.748,
+              "r2": 0.712,
+              "improvement_pct": 24.85
+            },
+            "Rajdhani": {
+              "n": 20535,
+              "mae": 11.244,
+              "rmse": 18.511,
+              "r2": 0.6784,
+              "improvement_pct": 14.65
+            },
+            "Passenger": {
+              "n": 838,
+              "mae": 7.908,
+              "rmse": 10.874,
+              "r2": 0.681,
+              "improvement_pct": 27.72
+            }
+          }
+        }
+      },
+      "5h": {
+        "persistence": {
+          "n": 121561,
+          "mae": 16.155,
+          "rmse": 28.954,
+          "r2": 0.4598,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 121561,
+          "mae": 19.277,
+          "rmse": 34.255,
+          "r2": 0.2438,
+          "improvement_pct": -19.33
+        },
+        "model": {
+          "overall": {
+            "n": 121561,
+            "mae": 13.012,
+            "rmse": 20.801,
+            "r2": 0.7212,
+            "improvement_pct": 19.45
+          },
+          "weather": {
+            "fog": {
+              "n": 20255,
+              "mae": 19.556,
+              "rmse": 28.072,
+              "r2": 0.7337,
+              "improvement_pct": 41.79
+            },
+            "non_fog": {
+              "n": 101306,
+              "mae": 11.704,
+              "rmse": 19.017,
+              "r2": 0.615,
+              "improvement_pct": 7.61
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1015,
+              "mae": 22.475,
+              "rmse": 29.212,
+              "r2": 0.6942,
+              "improvement_pct": 17.67
+            },
+            "Mail/Express": {
+              "n": 24108,
+              "mae": 11.553,
+              "rmse": 18.711,
+              "r2": 0.7211,
+              "improvement_pct": 12.61
+            },
+            "Shatabdi": {
+              "n": 785,
+              "mae": 24.282,
+              "rmse": 31.424,
+              "r2": 0.6253,
+              "improvement_pct": 48.57
+            },
+            "Superfast": {
+              "n": 71082,
+              "mae": 13.52,
+              "rmse": 21.56,
+              "r2": 0.7305,
+              "improvement_pct": 17.43
+            },
+            "Duronto": {
+              "n": 6537,
+              "mae": 11.136,
+              "rmse": 17.186,
+              "r2": 0.7132,
+              "improvement_pct": 35.57
+            },
+            "Rajdhani": {
+              "n": 17500,
+              "mae": 12.731,
+              "rmse": 20.658,
+              "r2": 0.659,
+              "improvement_pct": 24.59
+            },
+            "Passenger": {
+              "n": 534,
+              "mae": 8.95,
+              "rmse": 11.708,
+              "r2": 0.7114,
+              "improvement_pct": 40.61
+            }
+          }
+        }
+      },
+      "6h": {
+        "persistence": {
+          "n": 98998,
+          "mae": 19.431,
+          "rmse": 34.369,
+          "r2": 0.3429,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 98998,
+          "mae": 20.478,
+          "rmse": 35.957,
+          "r2": 0.2808,
+          "improvement_pct": -5.39
+        },
+        "model": {
+          "overall": {
+            "n": 98998,
+            "mae": 14.856,
+            "rmse": 23.533,
+            "r2": 0.6919,
+            "improvement_pct": 23.55
+          },
+          "weather": {
+            "fog": {
+              "n": 16998,
+              "mae": 22.536,
+              "rmse": 32.26,
+              "r2": 0.6794,
+              "improvement_pct": 44.76
+            },
+            "non_fog": {
+              "n": 82000,
+              "mae": 13.264,
+              "rmse": 21.281,
+              "r2": 0.5871,
+              "improvement_pct": 11.59
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 863,
+              "mae": 25.445,
+              "rmse": 33.62,
+              "r2": 0.6146,
+              "improvement_pct": 20.38
+            },
+            "Mail/Express": {
+              "n": 19694,
+              "mae": 12.723,
+              "rmse": 20.719,
+              "r2": 0.6918,
+              "improvement_pct": 15.44
+            },
+            "Shatabdi": {
+              "n": 281,
+              "mae": 28.487,
+              "rmse": 36.29,
+              "r2": 0.3821,
+              "improvement_pct": 69.95
+            },
+            "Superfast": {
+              "n": 58668,
+              "mae": 15.671,
+              "rmse": 24.705,
+              "r2": 0.6922,
+              "improvement_pct": 20.37
+            },
+            "Duronto": {
+              "n": 5199,
+              "mae": 12.951,
+              "rmse": 19.471,
+              "r2": 0.701,
+              "improvement_pct": 40.11
+            },
+            "Rajdhani": {
+              "n": 14055,
+              "mae": 14.305,
+              "rmse": 22.645,
+              "r2": 0.6651,
+              "improvement_pct": 33.17
+            },
+            "Passenger": {
+              "n": 238,
+              "mae": 9.916,
+              "rmse": 13.213,
+              "r2": 0.6837,
+              "improvement_pct": 54.83
+            }
+          }
+        }
+      }
+    },
+    "macro_avg": {
+      "model_mae": 9.68,
+      "persistence_mae": 11.582,
+      "historical_mae": 17.908,
+      "overall_improvement_vs_persistence_pct": 16.42
+    }
+  },
+  "fold1_val_lgbm": {
+    "horizons": {
+      "1h": {
+        "persistence": {
+          "n": 219392,
+          "mae": 3.607,
+          "rmse": 7.03,
+          "r2": 0.949,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 219392,
+          "mae": 15.503,
+          "rmse": 28.656,
+          "r2": 0.1525,
+          "improvement_pct": -329.75
+        },
+        "model": {
+          "overall": {
+            "n": 219392,
+            "mae": 3.408,
+            "rmse": 6.239,
+            "r2": 0.9598,
+            "improvement_pct": 5.52
+          },
+          "weather": {
+            "fog": {
+              "n": 42727,
+              "mae": 5.188,
+              "rmse": 9.016,
+              "r2": 0.9636,
+              "improvement_pct": 18.42
+            },
+            "non_fog": {
+              "n": 176665,
+              "mae": 2.978,
+              "rmse": 5.355,
+              "r2": 0.9364,
+              "improvement_pct": -1.23
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 2198,
+              "mae": 4.037,
+              "rmse": 7.011,
+              "r2": 0.9783,
+              "improvement_pct": 1.19
+            },
+            "Mail/Express": {
+              "n": 49300,
+              "mae": 3.607,
+              "rmse": 6.359,
+              "r2": 0.9546,
+              "improvement_pct": 3.64
+            },
+            "Shatabdi": {
+              "n": 3255,
+              "mae": 4.693,
+              "rmse": 8.249,
+              "r2": 0.9404,
+              "improvement_pct": 22.39
+            },
+            "Superfast": {
+              "n": 119834,
+              "mae": 3.405,
+              "rmse": 6.288,
+              "r2": 0.9623,
+              "improvement_pct": 6.44
+            },
+            "Duronto": {
+              "n": 11737,
+              "mae": 2.763,
+              "rmse": 5.336,
+              "r2": 0.9646,
+              "improvement_pct": 6.49
+            },
+            "Rajdhani": {
+              "n": 30953,
+              "mae": 3.183,
+              "rmse": 5.918,
+              "r2": 0.9539,
+              "improvement_pct": 2.09
+            },
+            "Passenger": {
+              "n": 2115,
+              "mae": 3.208,
+              "rmse": 5.32,
+              "r2": 0.8878,
+              "improvement_pct": -0.03
+            }
+          }
+        }
+      },
+      "2h": {
+        "persistence": {
+          "n": 193526,
+          "mae": 6.759,
+          "rmse": 12.617,
+          "r2": 0.8455,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 193526,
+          "mae": 16.176,
+          "rmse": 29.051,
+          "r2": 0.1808,
+          "improvement_pct": -139.3
+        },
+        "model": {
+          "overall": {
+            "n": 193526,
+            "mae": 6.129,
+            "rmse": 9.923,
+            "r2": 0.9044,
+            "improvement_pct": 9.32
+          },
+          "weather": {
+            "fog": {
+              "n": 38014,
+              "mae": 9.382,
+              "rmse": 13.879,
+              "r2": 0.9143,
+              "improvement_pct": 28.59
+            },
+            "non_fog": {
+              "n": 155512,
+              "mae": 5.334,
+              "rmse": 8.685,
+              "r2": 0.8422,
+              "improvement_pct": -2.58
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1795,
+              "mae": 7.934,
+              "rmse": 12.54,
+              "r2": 0.9387,
+              "improvement_pct": 8.18
+            },
+            "Mail/Express": {
+              "n": 42824,
+              "mae": 6.288,
+              "rmse": 10.038,
+              "r2": 0.8956,
+              "improvement_pct": 7.18
+            },
+            "Shatabdi": {
+              "n": 2661,
+              "mae": 9.185,
+              "rmse": 13.991,
+              "r2": 0.8506,
+              "improvement_pct": 31.31
+            },
+            "Superfast": {
+              "n": 107203,
+              "mae": 6.119,
+              "rmse": 9.89,
+              "r2": 0.911,
+              "improvement_pct": 9.6
+            },
+            "Duronto": {
+              "n": 10204,
+              "mae": 5.254,
+              "rmse": 9.022,
+              "r2": 0.8992,
+              "improvement_pct": 13.72
+            },
+            "Rajdhani": {
+              "n": 27082,
+              "mae": 5.907,
+              "rmse": 9.635,
+              "r2": 0.8874,
+              "improvement_pct": 5.67
+            },
+            "Passenger": {
+              "n": 1757,
+              "mae": 4.945,
+              "rmse": 7.75,
+              "r2": 0.7734,
+              "improvement_pct": 9.28
+            }
+          }
+        }
+      },
+      "3h": {
+        "persistence": {
+          "n": 167770,
+          "mae": 9.784,
+          "rmse": 17.89,
+          "r2": 0.712,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 167770,
+          "mae": 17.017,
+          "rmse": 29.777,
+          "r2": 0.2022,
+          "improvement_pct": -73.92
+        },
+        "model": {
+          "overall": {
+            "n": 167770,
+            "mae": 8.482,
+            "rmse": 13.255,
+            "r2": 0.8419,
+            "improvement_pct": 13.31
+          },
+          "weather": {
+            "fog": {
+              "n": 33054,
+              "mae": 13.095,
+              "rmse": 18.753,
+              "r2": 0.8464,
+              "improvement_pct": 35.53
+            },
+            "non_fog": {
+              "n": 134716,
+              "mae": 7.351,
+              "rmse": 11.512,
+              "r2": 0.7439,
+              "improvement_pct": -2.08
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1398,
+              "mae": 12.503,
+              "rmse": 18.089,
+              "r2": 0.8918,
+              "improvement_pct": 12.99
+            },
+            "Mail/Express": {
+              "n": 35739,
+              "mae": 8.454,
+              "rmse": 13.091,
+              "r2": 0.8367,
+              "improvement_pct": 10.42
+            },
+            "Shatabdi": {
+              "n": 1991,
+              "mae": 13.791,
+              "rmse": 20.081,
+              "r2": 0.7249,
+              "improvement_pct": 34.66
+            },
+            "Superfast": {
+              "n": 94538,
+              "mae": 8.512,
+              "rmse": 13.337,
+              "r2": 0.849,
+              "improvement_pct": 13.09
+            },
+            "Duronto": {
+              "n": 8890,
+              "mae": 7.436,
+              "rmse": 12.373,
+              "r2": 0.8198,
+              "improvement_pct": 21.2
+            },
+            "Rajdhani": {
+              "n": 23937,
+              "mae": 8.198,
+              "rmse": 12.568,
+              "r2": 0.8213,
+              "improvement_pct": 11.42
+            },
+            "Passenger": {
+              "n": 1277,
+              "mae": 6.988,
+              "rmse": 10.289,
+              "r2": 0.6679,
+              "improvement_pct": 16.68
+            }
+          }
+        }
+      },
+      "4h": {
+        "persistence": {
+          "n": 143878,
+          "mae": 12.764,
+          "rmse": 23.097,
+          "r2": 0.569,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 143878,
+          "mae": 17.925,
+          "rmse": 30.769,
+          "r2": 0.2351,
+          "improvement_pct": -40.43
+        },
+        "model": {
+          "overall": {
+            "n": 143878,
+            "mae": 10.609,
+            "rmse": 16.305,
+            "r2": 0.7852,
+            "improvement_pct": 16.88
+          },
+          "weather": {
+            "fog": {
+              "n": 28651,
+              "mae": 16.707,
+              "rmse": 23.474,
+              "r2": 0.7737,
+              "improvement_pct": 39.47
+            },
+            "non_fog": {
+              "n": 115227,
+              "mae": 9.093,
+              "rmse": 13.963,
+              "r2": 0.658,
+              "improvement_pct": -0.19
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1183,
+              "mae": 17.346,
+              "rmse": 22.223,
+              "r2": 0.8537,
+              "improvement_pct": 11.49
+            },
+            "Mail/Express": {
+              "n": 29353,
+              "mae": 10.124,
+              "rmse": 15.65,
+              "r2": 0.7842,
+              "improvement_pct": 12.45
+            },
+            "Shatabdi": {
+              "n": 1421,
+              "mae": 17.984,
+              "rmse": 24.554,
+              "r2": 0.6597,
+              "improvement_pct": 38.69
+            },
+            "Superfast": {
+              "n": 82688,
+              "mae": 10.785,
+              "rmse": 16.655,
+              "r2": 0.7875,
+              "improvement_pct": 16.09
+            },
+            "Duronto": {
+              "n": 7723,
+              "mae": 9.677,
+              "rmse": 15.879,
+              "r2": 0.7517,
+              "improvement_pct": 26.51
+            },
+            "Rajdhani": {
+              "n": 20679,
+              "mae": 10.129,
+              "rmse": 14.941,
+              "r2": 0.7769,
+              "improvement_pct": 18.68
+            },
+            "Passenger": {
+              "n": 831,
+              "mae": 8.685,
+              "rmse": 12.024,
+              "r2": 0.6246,
+              "improvement_pct": 29.1
+            }
+          }
+        }
+      },
+      "5h": {
+        "persistence": {
+          "n": 121711,
+          "mae": 15.758,
+          "rmse": 28.199,
+          "r2": 0.4306,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 121711,
+          "mae": 18.923,
+          "rmse": 31.973,
+          "r2": 0.268,
+          "improvement_pct": -20.08
+        },
+        "model": {
+          "overall": {
+            "n": 121711,
+            "mae": 12.303,
+            "rmse": 18.729,
+            "r2": 0.7488,
+            "improvement_pct": 21.93
+          },
+          "weather": {
+            "fog": {
+              "n": 24572,
+              "mae": 19.668,
+              "rmse": 27.382,
+              "r2": 0.7149,
+              "improvement_pct": 43.89
+            },
+            "non_fog": {
+              "n": 97139,
+              "mae": 10.44,
+              "rmse": 15.807,
+              "r2": 0.6076,
+              "improvement_pct": 4.03
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1026,
+              "mae": 20.545,
+              "rmse": 26.287,
+              "r2": 0.8095,
+              "improvement_pct": 12.5
+            },
+            "Mail/Express": {
+              "n": 24121,
+              "mae": 11.461,
+              "rmse": 17.71,
+              "r2": 0.7373,
+              "improvement_pct": 13.36
+            },
+            "Shatabdi": {
+              "n": 777,
+              "mae": 22.878,
+              "rmse": 28.13,
+              "r2": 0.6529,
+              "improvement_pct": 50.11
+            },
+            "Superfast": {
+              "n": 71094,
+              "mae": 12.752,
+              "rmse": 19.512,
+              "r2": 0.7432,
+              "improvement_pct": 20.42
+            },
+            "Duronto": {
+              "n": 6538,
+              "mae": 10.877,
+              "rmse": 17.281,
+              "r2": 0.763,
+              "improvement_pct": 36.93
+            },
+            "Rajdhani": {
+              "n": 17627,
+              "mae": 11.306,
+              "rmse": 16.334,
+              "r2": 0.7672,
+              "improvement_pct": 28.43
+            },
+            "Passenger": {
+              "n": 528,
+              "mae": 9.638,
+              "rmse": 12.374,
+              "r2": 0.6752,
+              "improvement_pct": 41.6
+            }
+          }
+        }
+      },
+      "6h": {
+        "persistence": {
+          "n": 98980,
+          "mae": 18.945,
+          "rmse": 33.502,
+          "r2": 0.3049,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 98980,
+          "mae": 20.043,
+          "rmse": 33.32,
+          "r2": 0.3124,
+          "improvement_pct": -5.8
+        },
+        "model": {
+          "overall": {
+            "n": 98980,
+            "mae": 13.962,
+            "rmse": 20.977,
+            "r2": 0.7275,
+            "improvement_pct": 26.3
+          },
+          "weather": {
+            "fog": {
+              "n": 20572,
+              "mae": 22.26,
+              "rmse": 30.585,
+              "r2": 0.6746,
+              "improvement_pct": 48.05
+            },
+            "non_fog": {
+              "n": 78408,
+              "mae": 11.785,
+              "rmse": 17.609,
+              "r2": 0.5763,
+              "improvement_pct": 7.01
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 864,
+              "mae": 24.521,
+              "rmse": 31.046,
+              "r2": 0.7479,
+              "improvement_pct": 10.8
+            },
+            "Mail/Express": {
+              "n": 19656,
+              "mae": 12.599,
+              "rmse": 19.204,
+              "r2": 0.7103,
+              "improvement_pct": 16.28
+            },
+            "Shatabdi": {
+              "n": 267,
+              "mae": 24.448,
+              "rmse": 30.216,
+              "r2": 0.5476,
+              "improvement_pct": 72.59
+            },
+            "Superfast": {
+              "n": 58630,
+              "mae": 14.714,
+              "rmse": 22.165,
+              "r2": 0.7155,
+              "improvement_pct": 23.8
+            },
+            "Duronto": {
+              "n": 5193,
+              "mae": 12.596,
+              "rmse": 19.282,
+              "r2": 0.7667,
+              "improvement_pct": 41.85
+            },
+            "Rajdhani": {
+              "n": 14135,
+              "mae": 12.462,
+              "rmse": 17.757,
+              "r2": 0.7665,
+              "improvement_pct": 37.42
+            },
+            "Passenger": {
+              "n": 235,
+              "mae": 10.211,
+              "rmse": 12.995,
+              "r2": 0.677,
+              "improvement_pct": 57.42
+            }
+          }
+        }
+      }
+    },
+    "macro_avg": {
+      "model_mae": 9.149,
+      "persistence_mae": 11.269,
+      "historical_mae": 17.598,
+      "overall_improvement_vs_persistence_pct": 18.82
+    }
+  },
+  "validation_rf": {
+    "horizons": {
+      "1h": {
+        "persistence": {
+          "n": 219409,
+          "mae": 2.756,
+          "rmse": 5.891,
+          "r2": 0.9083,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 219409,
+          "mae": 10.969,
+          "rmse": 17.615,
+          "r2": 0.1804,
+          "improvement_pct": -297.94
+        },
+        "model": {
+          "overall": {
+            "n": 219409,
+            "mae": 2.928,
+            "rmse": 5.16,
+            "r2": 0.9297,
+            "improvement_pct": -6.24
+          },
+          "weather": {
+            "non_fog": {
+              "n": 219409,
+              "mae": 2.928,
+              "rmse": 5.16,
+              "r2": 0.9297,
+              "improvement_pct": -6.24
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 2182,
+              "mae": 3.961,
+              "rmse": 6.475,
+              "r2": 0.9681,
+              "improvement_pct": -1.28
+            },
+            "Mail/Express": {
+              "n": 49293,
+              "mae": 3.081,
+              "rmse": 5.399,
+              "r2": 0.922,
+              "improvement_pct": -6.49
+            },
+            "Shatabdi": {
+              "n": 3245,
+              "mae": 4.057,
+              "rmse": 6.99,
+              "r2": 0.931,
+              "improvement_pct": 19.3
+            },
+            "Superfast": {
+              "n": 119858,
+              "mae": 2.927,
+              "rmse": 5.089,
+              "r2": 0.9363,
+              "improvement_pct": -3.48
+            },
+            "Duronto": {
+              "n": 11735,
+              "mae": 2.331,
+              "rmse": 4.417,
+              "r2": 0.9229,
+              "improvement_pct": -15.85
+            },
+            "Rajdhani": {
+              "n": 30979,
+              "mae": 2.728,
+              "rmse": 4.997,
+              "r2": 0.8825,
+              "improvement_pct": -22.13
+            },
+            "Passenger": {
+              "n": 2117,
+              "mae": 2.937,
+              "rmse": 4.763,
+              "r2": 0.7706,
+              "improvement_pct": -12.45
+            }
+          }
+        }
+      },
+      "2h": {
+        "persistence": {
+          "n": 192837,
+          "mae": 4.893,
+          "rmse": 10.128,
+          "r2": 0.7481,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 192837,
+          "mae": 11.391,
+          "rmse": 17.963,
+          "r2": 0.2075,
+          "improvement_pct": -132.81
+        },
+        "model": {
+          "overall": {
+            "n": 192837,
+            "mae": 5.438,
+            "rmse": 8.819,
+            "r2": 0.809,
+            "improvement_pct": -11.14
+          },
+          "weather": {
+            "non_fog": {
+              "n": 192837,
+              "mae": 5.438,
+              "rmse": 8.819,
+              "r2": 0.809,
+              "improvement_pct": -11.14
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1781,
+              "mae": 8.012,
+              "rmse": 11.841,
+              "r2": 0.8998,
+              "improvement_pct": -0.13
+            },
+            "Mail/Express": {
+              "n": 42639,
+              "mae": 5.567,
+              "rmse": 8.997,
+              "r2": 0.7969,
+              "improvement_pct": -10.52
+            },
+            "Shatabdi": {
+              "n": 2631,
+              "mae": 8.646,
+              "rmse": 13.791,
+              "r2": 0.7649,
+              "improvement_pct": 21.04
+            },
+            "Superfast": {
+              "n": 106965,
+              "mae": 5.427,
+              "rmse": 8.77,
+              "r2": 0.8238,
+              "improvement_pct": -9.17
+            },
+            "Duronto": {
+              "n": 10157,
+              "mae": 4.724,
+              "rmse": 8.259,
+              "r2": 0.7371,
+              "improvement_pct": -17.18
+            },
+            "Rajdhani": {
+              "n": 26906,
+              "mae": 5.136,
+              "rmse": 8.177,
+              "r2": 0.7103,
+              "improvement_pct": -30.33
+            },
+            "Passenger": {
+              "n": 1758,
+              "mae": 4.261,
+              "rmse": 6.639,
+              "r2": 0.5775,
+              "improvement_pct": -8.14
+            }
+          }
+        }
+      },
+      "3h": {
+        "persistence": {
+          "n": 166904,
+          "mae": 6.792,
+          "rmse": 13.793,
+          "r2": 0.5775,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 166904,
+          "mae": 11.959,
+          "rmse": 18.537,
+          "r2": 0.2369,
+          "improvement_pct": -76.07
+        },
+        "model": {
+          "overall": {
+            "n": 166904,
+            "mae": 7.607,
+            "rmse": 11.888,
+            "r2": 0.6862,
+            "improvement_pct": -12.01
+          },
+          "weather": {
+            "non_fog": {
+              "n": 166904,
+              "mae": 7.607,
+              "rmse": 11.888,
+              "r2": 0.6862,
+              "improvement_pct": -12.01
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1397,
+              "mae": 13.025,
+              "rmse": 18.124,
+              "r2": 0.7855,
+              "improvement_pct": 4.15
+            },
+            "Mail/Express": {
+              "n": 35468,
+              "mae": 7.516,
+              "rmse": 11.817,
+              "r2": 0.6784,
+              "improvement_pct": -11.16
+            },
+            "Shatabdi": {
+              "n": 1948,
+              "mae": 13.57,
+              "rmse": 20.388,
+              "r2": 0.5556,
+              "improvement_pct": 21.36
+            },
+            "Superfast": {
+              "n": 94220,
+              "mae": 7.621,
+              "rmse": 11.959,
+              "r2": 0.7039,
+              "improvement_pct": -10.15
+            },
+            "Duronto": {
+              "n": 8840,
+              "mae": 7.017,
+              "rmse": 11.697,
+              "r2": 0.5373,
+              "improvement_pct": -13.78
+            },
+            "Rajdhani": {
+              "n": 23758,
+              "mae": 7.197,
+              "rmse": 10.428,
+              "r2": 0.5734,
+              "improvement_pct": -34.05
+            },
+            "Passenger": {
+              "n": 1273,
+              "mae": 5.83,
+              "rmse": 8.739,
+              "r2": 0.3675,
+              "improvement_pct": -2.66
+            }
+          }
+        }
+      },
+      "4h": {
+        "persistence": {
+          "n": 142530,
+          "mae": 8.46,
+          "rmse": 16.928,
+          "r2": 0.4245,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 142530,
+          "mae": 12.519,
+          "rmse": 19.157,
+          "r2": 0.263,
+          "improvement_pct": -47.98
+        },
+        "model": {
+          "overall": {
+            "n": 142530,
+            "mae": 9.363,
+            "rmse": 14.285,
+            "r2": 0.5902,
+            "improvement_pct": -10.68
+          },
+          "weather": {
+            "non_fog": {
+              "n": 142530,
+              "mae": 9.363,
+              "rmse": 14.285,
+              "r2": 0.5902,
+              "improvement_pct": -10.68
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1162,
+              "mae": 17.045,
+              "rmse": 22.775,
+              "r2": 0.6885,
+              "improvement_pct": 5.72
+            },
+            "Mail/Express": {
+              "n": 29032,
+              "mae": 8.688,
+              "rmse": 13.659,
+              "r2": 0.5833,
+              "improvement_pct": -11.77
+            },
+            "Shatabdi": {
+              "n": 1399,
+              "mae": 18.335,
+              "rmse": 25.684,
+              "r2": 0.4184,
+              "improvement_pct": 20.54
+            },
+            "Superfast": {
+              "n": 82111,
+              "mae": 9.535,
+              "rmse": 14.603,
+              "r2": 0.6034,
+              "improvement_pct": -9.2
+            },
+            "Duronto": {
+              "n": 7611,
+              "mae": 8.546,
+              "rmse": 13.583,
+              "r2": 0.4694,
+              "improvement_pct": -4.78
+            },
+            "Rajdhani": {
+              "n": 20391,
+              "mae": 8.983,
+              "rmse": 12.431,
+              "r2": 0.4741,
+              "improvement_pct": -29.58
+            },
+            "Passenger": {
+              "n": 824,
+              "mae": 6.841,
+              "rmse": 9.646,
+              "r2": 0.3282,
+              "improvement_pct": 11.73
+            }
+          }
+        }
+      },
+      "5h": {
+        "persistence": {
+          "n": 119883,
+          "mae": 10.022,
+          "rmse": 19.784,
+          "r2": 0.2919,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 119883,
+          "mae": 13.094,
+          "rmse": 19.741,
+          "r2": 0.295,
+          "improvement_pct": -30.65
+        },
+        "model": {
+          "overall": {
+            "n": 119883,
+            "mae": 10.898,
+            "rmse": 16.328,
+            "r2": 0.5177,
+            "improvement_pct": -8.73
+          },
+          "weather": {
+            "non_fog": {
+              "n": 119883,
+              "mae": 10.898,
+              "rmse": 16.328,
+              "r2": 0.5177,
+              "improvement_pct": -8.73
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1004,
+              "mae": 19.848,
+              "rmse": 27.065,
+              "r2": 0.584,
+              "improvement_pct": 5.92
+            },
+            "Mail/Express": {
+              "n": 23798,
+              "mae": 9.57,
+              "rmse": 14.767,
+              "r2": 0.5107,
+              "improvement_pct": -12.22
+            },
+            "Shatabdi": {
+              "n": 736,
+              "mae": 26.972,
+              "rmse": 35.84,
+              "r2": 0.1395,
+              "improvement_pct": 26.82
+            },
+            "Superfast": {
+              "n": 70221,
+              "mae": 11.229,
+              "rmse": 17.031,
+              "r2": 0.5204,
+              "improvement_pct": -7.11
+            },
+            "Duronto": {
+              "n": 6395,
+              "mae": 10.351,
+              "rmse": 15.177,
+              "r2": 0.4786,
+              "improvement_pct": -0.49
+            },
+            "Rajdhani": {
+              "n": 17215,
+              "mae": 10.476,
+              "rmse": 13.605,
+              "r2": 0.4531,
+              "improvement_pct": -26.21
+            },
+            "Passenger": {
+              "n": 514,
+              "mae": 7.551,
+              "rmse": 11.03,
+              "r2": 0.2321,
+              "improvement_pct": 27.67
+            }
+          }
+        }
+      },
+      "6h": {
+        "persistence": {
+          "n": 96535,
+          "mae": 11.554,
+          "rmse": 22.608,
+          "r2": 0.1879,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 96535,
+          "mae": 13.715,
+          "rmse": 20.34,
+          "r2": 0.3426,
+          "improvement_pct": -18.7
+        },
+        "model": {
+          "overall": {
+            "n": 96535,
+            "mae": 12.166,
+            "rmse": 18.232,
+            "r2": 0.4718,
+            "improvement_pct": -5.29
+          },
+          "weather": {
+            "non_fog": {
+              "n": 96535,
+              "mae": 12.166,
+              "rmse": 18.232,
+              "r2": 0.4718,
+              "improvement_pct": -5.29
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 841,
+              "mae": 22.017,
+              "rmse": 30.988,
+              "r2": 0.4937,
+              "improvement_pct": 8.59
+            },
+            "Mail/Express": {
+              "n": 19365,
+              "mae": 9.941,
+              "rmse": 15.781,
+              "r2": 0.4953,
+              "improvement_pct": -4.84
+            },
+            "Shatabdi": {
+              "n": 220,
+              "mae": 38.429,
+              "rmse": 46.287,
+              "r2": -0.8625,
+              "improvement_pct": 48.85
+            },
+            "Superfast": {
+              "n": 57352,
+              "mae": 12.852,
+              "rmse": 19.326,
+              "r2": 0.4542,
+              "improvement_pct": -6.32
+            },
+            "Duronto": {
+              "n": 4983,
+              "mae": 11.159,
+              "rmse": 16.982,
+              "r2": 0.4793,
+              "improvement_pct": 10.09
+            },
+            "Rajdhani": {
+              "n": 13563,
+              "mae": 11.828,
+              "rmse": 15.122,
+              "r2": 0.4379,
+              "improvement_pct": -17.19
+            },
+            "Passenger": {
+              "n": 211,
+              "mae": 8.585,
+              "rmse": 12.042,
+              "r2": 0.208,
+              "improvement_pct": 39.32
+            }
+          }
+        }
+      }
+    },
+    "macro_avg": {
+      "model_mae": 8.067,
+      "persistence_mae": 7.413,
+      "historical_mae": 12.275,
+      "overall_improvement_vs_persistence_pct": -8.82
+    }
+  },
+  "test_rf": {
+    "horizons": {
+      "1h": {
+        "persistence": {
+          "n": 219383,
+          "mae": 3.707,
+          "rmse": 7.222,
+          "r2": 0.9521,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 219383,
+          "mae": 15.749,
+          "rmse": 30.393,
+          "r2": 0.1513,
+          "improvement_pct": -324.89
+        },
+        "model": {
+          "overall": {
+            "n": 219383,
+            "mae": 3.61,
+            "rmse": 6.465,
+            "r2": 0.9616,
+            "improvement_pct": 2.62
+          },
+          "weather": {
+            "fog": {
+              "n": 35510,
+              "mae": 5.186,
+              "rmse": 9.192,
+              "r2": 0.9659,
+              "improvement_pct": 17.47
+            },
+            "non_fog": {
+              "n": 183873,
+              "mae": 3.305,
+              "rmse": 5.792,
+              "r2": 0.9492,
+              "improvement_pct": -2.99
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 2188,
+              "mae": 4.569,
+              "rmse": 7.155,
+              "r2": 0.9747,
+              "improvement_pct": -0.22
+            },
+            "Mail/Express": {
+              "n": 49293,
+              "mae": 3.76,
+              "rmse": 6.272,
+              "r2": 0.959,
+              "improvement_pct": 2.35
+            },
+            "Shatabdi": {
+              "n": 3259,
+              "mae": 4.487,
+              "rmse": 7.549,
+              "r2": 0.9584,
+              "improvement_pct": 24.65
+            },
+            "Superfast": {
+              "n": 119886,
+              "mae": 3.612,
+              "rmse": 6.716,
+              "r2": 0.9631,
+              "improvement_pct": 3.35
+            },
+            "Duronto": {
+              "n": 11726,
+              "mae": 2.939,
+              "rmse": 5.48,
+              "r2": 0.955,
+              "improvement_pct": 4.84
+            },
+            "Rajdhani": {
+              "n": 30921,
+              "mae": 3.48,
+              "rmse": 6.014,
+              "r2": 0.958,
+              "improvement_pct": -4.1
+            },
+            "Passenger": {
+              "n": 2110,
+              "mae": 3.215,
+              "rmse": 5.056,
+              "r2": 0.8917,
+              "improvement_pct": -6.8
+            }
+          }
+        }
+      },
+      "2h": {
+        "persistence": {
+          "n": 193458,
+          "mae": 6.967,
+          "rmse": 13.044,
+          "r2": 0.8526,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 193458,
+          "mae": 16.404,
+          "rmse": 30.862,
+          "r2": 0.1751,
+          "improvement_pct": -135.45
+        },
+        "model": {
+          "overall": {
+            "n": 193458,
+            "mae": 6.725,
+            "rmse": 10.893,
+            "r2": 0.8972,
+            "improvement_pct": 3.47
+          },
+          "weather": {
+            "fog": {
+              "n": 31578,
+              "mae": 9.807,
+              "rmse": 14.583,
+              "r2": 0.9158,
+              "improvement_pct": 24.3
+            },
+            "non_fog": {
+              "n": 161880,
+              "mae": 6.124,
+              "rmse": 10.016,
+              "r2": 0.855,
+              "improvement_pct": -5.61
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1788,
+              "mae": 9.144,
+              "rmse": 13.474,
+              "r2": 0.917,
+              "improvement_pct": 3.53
+            },
+            "Mail/Express": {
+              "n": 42821,
+              "mae": 6.808,
+              "rmse": 10.671,
+              "r2": 0.8882,
+              "improvement_pct": 3.01
+            },
+            "Shatabdi": {
+              "n": 2652,
+              "mae": 9.737,
+              "rmse": 15.028,
+              "r2": 0.8532,
+              "improvement_pct": 25.46
+            },
+            "Superfast": {
+              "n": 107232,
+              "mae": 6.695,
+              "rmse": 10.958,
+              "r2": 0.9071,
+              "improvement_pct": 3.92
+            },
+            "Duronto": {
+              "n": 10224,
+              "mae": 5.88,
+              "rmse": 9.794,
+              "r2": 0.8662,
+              "improvement_pct": 7.7
+            },
+            "Rajdhani": {
+              "n": 26986,
+              "mae": 6.695,
+              "rmse": 10.897,
+              "r2": 0.8665,
+              "improvement_pct": -3.52
+            },
+            "Passenger": {
+              "n": 1755,
+              "mae": 4.926,
+              "rmse": 7.322,
+              "r2": 0.7927,
+              "improvement_pct": 1.41
+            }
+          }
+        }
+      },
+      "3h": {
+        "persistence": {
+          "n": 167759,
+          "mae": 10.096,
+          "rmse": 18.535,
+          "r2": 0.7271,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 167759,
+          "mae": 17.294,
+          "rmse": 31.813,
+          "r2": 0.196,
+          "improvement_pct": -71.29
+        },
+        "model": {
+          "overall": {
+            "n": 167759,
+            "mae": 9.458,
+            "rmse": 14.924,
+            "r2": 0.8231,
+            "improvement_pct": 6.32
+          },
+          "weather": {
+            "fog": {
+              "n": 27442,
+              "mae": 13.948,
+              "rmse": 19.545,
+              "r2": 0.8552,
+              "improvement_pct": 29.65
+            },
+            "non_fog": {
+              "n": 140317,
+              "mae": 8.579,
+              "rmse": 13.84,
+              "r2": 0.7463,
+              "improvement_pct": -4.72
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1400,
+              "mae": 14.742,
+              "rmse": 20.62,
+              "r2": 0.8273,
+              "improvement_pct": 7.07
+            },
+            "Mail/Express": {
+              "n": 35808,
+              "mae": 9.235,
+              "rmse": 14.362,
+              "r2": 0.8148,
+              "improvement_pct": 5.04
+            },
+            "Shatabdi": {
+              "n": 1987,
+              "mae": 15.54,
+              "rmse": 23.546,
+              "r2": 0.6787,
+              "improvement_pct": 26.25
+            },
+            "Superfast": {
+              "n": 94602,
+              "mae": 9.458,
+              "rmse": 14.883,
+              "r2": 0.8429,
+              "improvement_pct": 6.49
+            },
+            "Duronto": {
+              "n": 8917,
+              "mae": 8.468,
+              "rmse": 13.636,
+              "r2": 0.755,
+              "improvement_pct": 13.59
+            },
+            "Rajdhani": {
+              "n": 23773,
+              "mae": 9.498,
+              "rmse": 15.278,
+              "r2": 0.7498,
+              "improvement_pct": 0.85
+            },
+            "Passenger": {
+              "n": 1272,
+              "mae": 6.617,
+              "rmse": 9.557,
+              "r2": 0.699,
+              "improvement_pct": 11.09
+            }
+          }
+        }
+      },
+      "4h": {
+        "persistence": {
+          "n": 143859,
+          "mae": 13.134,
+          "rmse": 23.818,
+          "r2": 0.5925,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 143859,
+          "mae": 18.247,
+          "rmse": 32.931,
+          "r2": 0.221,
+          "improvement_pct": -38.93
+        },
+        "model": {
+          "overall": {
+            "n": 143859,
+            "mae": 11.802,
+            "rmse": 18.37,
+            "r2": 0.7576,
+            "improvement_pct": 10.14
+          },
+          "weather": {
+            "fog": {
+              "n": 23717,
+              "mae": 17.686,
+              "rmse": 23.96,
+              "r2": 0.7928,
+              "improvement_pct": 33.64
+            },
+            "non_fog": {
+              "n": 120142,
+              "mae": 10.641,
+              "rmse": 17.051,
+              "r2": 0.6538,
+              "improvement_pct": -1.68
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1173,
+              "mae": 20.201,
+              "rmse": 26.351,
+              "r2": 0.7391,
+              "improvement_pct": 8.79
+            },
+            "Mail/Express": {
+              "n": 29360,
+              "mae": 11.131,
+              "rmse": 17.408,
+              "r2": 0.7458,
+              "improvement_pct": 4.51
+            },
+            "Shatabdi": {
+              "n": 1430,
+              "mae": 20.36,
+              "rmse": 29.383,
+              "r2": 0.5771,
+              "improvement_pct": 30.56
+            },
+            "Superfast": {
+              "n": 82785,
+              "mae": 11.871,
+              "rmse": 18.312,
+              "r2": 0.7842,
+              "improvement_pct": 10.37
+            },
+            "Duronto": {
+              "n": 7738,
+              "mae": 10.448,
+              "rmse": 16.313,
+              "r2": 0.691,
+              "improvement_pct": 21.54
+            },
+            "Rajdhani": {
+              "n": 20535,
+              "mae": 12.089,
+              "rmse": 19.351,
+              "r2": 0.6486,
+              "improvement_pct": 8.24
+            },
+            "Passenger": {
+              "n": 838,
+              "mae": 7.622,
+              "rmse": 10.441,
+              "r2": 0.7059,
+              "improvement_pct": 30.33
+            }
+          }
+        }
+      },
+      "5h": {
+        "persistence": {
+          "n": 121561,
+          "mae": 16.155,
+          "rmse": 28.954,
+          "r2": 0.4598,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 121561,
+          "mae": 19.277,
+          "rmse": 34.255,
+          "r2": 0.2438,
+          "improvement_pct": -19.33
+        },
+        "model": {
+          "overall": {
+            "n": 121561,
+            "mae": 13.835,
+            "rmse": 21.59,
+            "r2": 0.6996,
+            "improvement_pct": 14.36
+          },
+          "weather": {
+            "fog": {
+              "n": 20255,
+              "mae": 20.488,
+              "rmse": 28.075,
+              "r2": 0.7336,
+              "improvement_pct": 39.01
+            },
+            "non_fog": {
+              "n": 101306,
+              "mae": 12.505,
+              "rmse": 20.044,
+              "r2": 0.5723,
+              "improvement_pct": 1.28
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1015,
+              "mae": 23.768,
+              "rmse": 31.342,
+              "r2": 0.6479,
+              "improvement_pct": 12.93
+            },
+            "Mail/Express": {
+              "n": 24108,
+              "mae": 12.704,
+              "rmse": 19.925,
+              "r2": 0.6837,
+              "improvement_pct": 3.91
+            },
+            "Shatabdi": {
+              "n": 785,
+              "mae": 29.622,
+              "rmse": 41.113,
+              "r2": 0.3586,
+              "improvement_pct": 37.25
+            },
+            "Superfast": {
+              "n": 71082,
+              "mae": 13.96,
+              "rmse": 21.688,
+              "r2": 0.7273,
+              "improvement_pct": 14.73
+            },
+            "Duronto": {
+              "n": 6537,
+              "mae": 12.614,
+              "rmse": 19.19,
+              "r2": 0.6425,
+              "improvement_pct": 27.02
+            },
+            "Rajdhani": {
+              "n": 17500,
+              "mae": 14.211,
+              "rmse": 22.478,
+              "r2": 0.5963,
+              "improvement_pct": 15.82
+            },
+            "Passenger": {
+              "n": 534,
+              "mae": 8.779,
+              "rmse": 12.527,
+              "r2": 0.6696,
+              "improvement_pct": 41.74
+            }
+          }
+        }
+      },
+      "6h": {
+        "persistence": {
+          "n": 98998,
+          "mae": 19.431,
+          "rmse": 34.369,
+          "r2": 0.3429,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 98998,
+          "mae": 20.478,
+          "rmse": 35.957,
+          "r2": 0.2808,
+          "improvement_pct": -5.39
+        },
+        "model": {
+          "overall": {
+            "n": 98998,
+            "mae": 15.956,
+            "rmse": 25.004,
+            "r2": 0.6522,
+            "improvement_pct": 17.88
+          },
+          "weather": {
+            "fog": {
+              "n": 16998,
+              "mae": 24.571,
+              "rmse": 33.314,
+              "r2": 0.6581,
+              "improvement_pct": 39.77
+            },
+            "non_fog": {
+              "n": 82000,
+              "mae": 14.17,
+              "rmse": 22.907,
+              "r2": 0.5216,
+              "improvement_pct": 5.55
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 863,
+              "mae": 26.762,
+              "rmse": 36.404,
+              "r2": 0.5482,
+              "improvement_pct": 16.26
+            },
+            "Mail/Express": {
+              "n": 19694,
+              "mae": 13.801,
+              "rmse": 22.367,
+              "r2": 0.6409,
+              "improvement_pct": 8.27
+            },
+            "Shatabdi": {
+              "n": 281,
+              "mae": 45.089,
+              "rmse": 54.952,
+              "r2": -0.4169,
+              "improvement_pct": 52.45
+            },
+            "Superfast": {
+              "n": 58668,
+              "mae": 16.425,
+              "rmse": 25.357,
+              "r2": 0.6758,
+              "improvement_pct": 16.54
+            },
+            "Duronto": {
+              "n": 5199,
+              "mae": 14.497,
+              "rmse": 22.465,
+              "r2": 0.6021,
+              "improvement_pct": 32.96
+            },
+            "Rajdhani": {
+              "n": 14055,
+              "mae": 16.422,
+              "rmse": 26.219,
+              "r2": 0.551,
+              "improvement_pct": 23.28
+            },
+            "Passenger": {
+              "n": 238,
+              "mae": 9.393,
+              "rmse": 13.369,
+              "r2": 0.6762,
+              "improvement_pct": 57.21
+            }
+          }
+        }
+      }
+    },
+    "macro_avg": {
+      "model_mae": 10.231,
+      "persistence_mae": 11.582,
+      "historical_mae": 17.908,
+      "overall_improvement_vs_persistence_pct": 11.66
+    }
+  },
+  "validation_gnn": {
+    "horizons": {
+      "1h": {
+        "persistence": {
+          "n": 219409,
+          "mae": 2.756,
+          "rmse": 5.891,
+          "r2": 0.9083,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 219409,
+          "mae": 10.969,
+          "rmse": 17.615,
+          "r2": 0.1804,
+          "improvement_pct": -297.94
+        },
+        "model": {
+          "overall": {
+            "n": 219409,
+            "mae": 3.095,
+            "rmse": 5.61,
+            "r2": 0.9169,
+            "improvement_pct": -12.28
+          },
+          "weather": {
+            "non_fog": {
+              "n": 219409,
+              "mae": 3.095,
+              "rmse": 5.61,
+              "r2": 0.9169,
+              "improvement_pct": -12.28
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 2182,
+              "mae": 4.158,
+              "rmse": 7.053,
+              "r2": 0.9621,
+              "improvement_pct": -6.3
+            },
+            "Mail/Express": {
+              "n": 49293,
+              "mae": 3.271,
+              "rmse": 5.814,
+              "r2": 0.9095,
+              "improvement_pct": -13.08
+            },
+            "Shatabdi": {
+              "n": 3245,
+              "mae": 4.956,
+              "rmse": 8.692,
+              "r2": 0.8933,
+              "improvement_pct": 1.43
+            },
+            "Superfast": {
+              "n": 119858,
+              "mae": 3.119,
+              "rmse": 5.574,
+              "r2": 0.9236,
+              "improvement_pct": -10.27
+            },
+            "Duronto": {
+              "n": 11735,
+              "mae": 2.343,
+              "rmse": 4.736,
+              "r2": 0.9114,
+              "improvement_pct": -16.46
+            },
+            "Rajdhani": {
+              "n": 30979,
+              "mae": 2.75,
+              "rmse": 5.228,
+              "r2": 0.8714,
+              "improvement_pct": -23.15
+            },
+            "Passenger": {
+              "n": 2117,
+              "mae": 2.873,
+              "rmse": 4.901,
+              "r2": 0.7571,
+              "improvement_pct": -10.02
+            }
+          }
+        }
+      },
+      "2h": {
+        "persistence": {
+          "n": 192837,
+          "mae": 4.893,
+          "rmse": 10.128,
+          "r2": 0.7481,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 192837,
+          "mae": 11.391,
+          "rmse": 17.963,
+          "r2": 0.2075,
+          "improvement_pct": -132.81
+        },
+        "model": null
+      },
+      "3h": {
+        "persistence": {
+          "n": 166904,
+          "mae": 6.792,
+          "rmse": 13.793,
+          "r2": 0.5775,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 166904,
+          "mae": 11.959,
+          "rmse": 18.537,
+          "r2": 0.2369,
+          "improvement_pct": -76.07
+        },
+        "model": {
+          "overall": {
+            "n": 166904,
+            "mae": 8.144,
+            "rmse": 12.702,
+            "r2": 0.6417,
+            "improvement_pct": -19.91
+          },
+          "weather": {
+            "non_fog": {
+              "n": 166904,
+              "mae": 8.144,
+              "rmse": 12.702,
+              "r2": 0.6417,
+              "improvement_pct": -19.91
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 1397,
+              "mae": 13.734,
+              "rmse": 20.079,
+              "r2": 0.7367,
+              "improvement_pct": -1.07
+            },
+            "Mail/Express": {
+              "n": 35468,
+              "mae": 8.329,
+              "rmse": 12.754,
+              "r2": 0.6254,
+              "improvement_pct": -23.19
+            },
+            "Shatabdi": {
+              "n": 1948,
+              "mae": 16.257,
+              "rmse": 25.064,
+              "r2": 0.3284,
+              "improvement_pct": 5.8
+            },
+            "Superfast": {
+              "n": 94220,
+              "mae": 8.116,
+              "rmse": 12.662,
+              "r2": 0.668,
+              "improvement_pct": -17.3
+            },
+            "Duronto": {
+              "n": 8840,
+              "mae": 7.518,
+              "rmse": 12.607,
+              "r2": 0.4625,
+              "improvement_pct": -21.89
+            },
+            "Rajdhani": {
+              "n": 23758,
+              "mae": 7.33,
+              "rmse": 10.768,
+              "r2": 0.5451,
+              "improvement_pct": -36.53
+            },
+            "Passenger": {
+              "n": 1273,
+              "mae": 6.083,
+              "rmse": 9.024,
+              "r2": 0.3255,
+              "improvement_pct": -7.11
+            }
+          }
+        }
+      },
+      "4h": {
+        "persistence": {
+          "n": 142530,
+          "mae": 8.46,
+          "rmse": 16.928,
+          "r2": 0.4245,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 142530,
+          "mae": 12.519,
+          "rmse": 19.157,
+          "r2": 0.263,
+          "improvement_pct": -47.98
+        },
+        "model": null
+      },
+      "5h": {
+        "persistence": {
+          "n": 119883,
+          "mae": 10.022,
+          "rmse": 19.784,
+          "r2": 0.2919,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 119883,
+          "mae": 13.094,
+          "rmse": 19.741,
+          "r2": 0.295,
+          "improvement_pct": -30.65
+        },
+        "model": null
+      },
+      "6h": {
+        "persistence": {
+          "n": 96535,
+          "mae": 11.554,
+          "rmse": 22.608,
+          "r2": 0.1879,
+          "improvement_pct": NaN
+        },
+        "historical": {
+          "n": 96535,
+          "mae": 13.715,
+          "rmse": 20.34,
+          "r2": 0.3426,
+          "improvement_pct": -18.7
+        },
+        "model": {
+          "overall": {
+            "n": 96535,
+            "mae": 13.564,
+            "rmse": 19.984,
+            "r2": 0.3654,
+            "improvement_pct": -17.39
+          },
+          "weather": {
+            "non_fog": {
+              "n": 96535,
+              "mae": 13.564,
+              "rmse": 19.984,
+              "r2": 0.3654,
+              "improvement_pct": -17.39
+            }
+          },
+          "train_type": {
+            "other": {
+              "n": 841,
+              "mae": 23.532,
+              "rmse": 35.429,
+              "r2": 0.3382,
+              "improvement_pct": 2.3
+            },
+            "Mail/Express": {
+              "n": 19365,
+              "mae": 12.075,
+              "rmse": 17.937,
+              "r2": 0.3479,
+              "improvement_pct": -27.34
+            },
+            "Shatabdi": {
+              "n": 220,
+              "mae": 62.11,
+              "rmse": 68.306,
+              "r2": -3.0561,
+              "improvement_pct": 17.32
+            },
+            "Superfast": {
+              "n": 57352,
+              "mae": 13.834,
+              "rmse": 20.532,
+              "r2": 0.3839,
+              "improvement_pct": -14.44
+            },
+            "Duronto": {
+              "n": 4983,
+              "mae": 13.938,
+              "rmse": 21.213,
+              "r2": 0.1876,
+              "improvement_pct": -12.31
+            },
+            "Rajdhani": {
+              "n": 13563,
+              "mae": 13.03,
+              "rmse": 16.677,
+              "r2": 0.3164,
+              "improvement_pct": -29.1
+            },
+            "Passenger": {
+              "n": 211,
+              "mae": 12.077,
+              "rmse": 15.224,
+              "r2": -0.2658,
+              "improvement_pct": 14.65
+            }
+          }
+        }
+      }
+    },
+    "macro_avg": {
+      "model_mae": 8.268,
+      "persistence_mae": 7.413,
+      "historical_mae": 12.275,
+      "overall_improvement_vs_persistence_pct": -11.53
+    }
+  }
+}
