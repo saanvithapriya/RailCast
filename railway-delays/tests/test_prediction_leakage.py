@@ -107,3 +107,29 @@ def test_station_lead_delay_cannot_use_future_arrivals():
     # Train C arrived at 150: preceding arrival was Train B (delay 50.0, gap 30.0m), NOT Train A
     assert feat_df.loc[2, "station_lead_delay"] == pytest.approx(50.0)
     assert feat_df.loc[2, "station_lead_gap_min"] == pytest.approx(30.0)
+
+
+def test_features_observable_at_prediction_cutoff_only():
+    """Verify modifying post-cutoff downstream outcomes does not alter feature values at cutoff t_now."""
+    run_records = [
+        {"run_id": 1, "current_node": 2, "direction": 1, "abs_arr": 100.0, "current_delay": 10.0, "arrival_delay": 10.0, "prev_dep_delay": 8.0, "seq": 0, "type": "Superfast", "priority": 3, "weather": "clear", "train": "12002"},
+        {"run_id": 1, "current_node": 5, "direction": 1, "abs_arr": 160.0, "current_delay": 25.0, "arrival_delay": 25.0, "prev_dep_delay": 20.0, "seq": 1, "type": "Superfast", "priority": 3, "weather": "fog", "train": "12002"},
+        {"run_id": 1, "current_node": 9, "direction": 1, "abs_arr": 220.0, "current_delay": 45.0, "arrival_delay": 45.0, "prev_dep_delay": 40.0, "seq": 2, "type": "Superfast", "priority": 3, "weather": "rain", "train": "12002"},
+    ]
+    df_orig = pd.DataFrame(run_records)
+    feat_orig = extract_observation_features(df_orig)
+
+    # Mutate downstream future stop 1 and stop 2 dramatically (e.g. delay becomes 500 min and extreme weather)
+    df_mutated = pd.DataFrame([
+        run_records[0],
+        {"run_id": 1, "current_node": 5, "direction": 1, "abs_arr": 160.0, "current_delay": 500.0, "arrival_delay": 500.0, "prev_dep_delay": 480.0, "seq": 1, "type": "Superfast", "priority": 3, "weather": "storm", "train": "12002"},
+        {"run_id": 1, "current_node": 9, "direction": 1, "abs_arr": 220.0, "current_delay": 999.0, "arrival_delay": 999.0, "prev_dep_delay": 900.0, "seq": 2, "type": "Superfast", "priority": 3, "weather": "storm", "train": "12002"},
+    ])
+    feat_mutated = extract_observation_features(df_mutated)
+
+    pipeline = FeaturePipeline().fit(df_orig)
+    X_orig = pipeline.transform(df_orig)
+    X_mutated = pipeline.transform(df_mutated)
+
+    # Cutoff stop 0 features must remain EXACTLY identical
+    np.testing.assert_allclose(X_orig[0], X_mutated[0])

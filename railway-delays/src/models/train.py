@@ -41,7 +41,14 @@ def create_regressor(
 
     if m_type in ("lightgbm", "lgb"):
         if not HAS_LIGHTGBM:
-            raise ImportError("LightGBM is not installed. Please install lightgbm or select model_type='rf'.")
+            if HAS_XGBOOST:
+                return create_regressor(
+                    model_type="xgb",
+                    horizon=horizon,
+                    random_state=random_state,
+                    **kwargs,
+                )
+            raise ImportError("LightGBM is not installed. Please install lightgbm or select model_type='rf' or 'xgb'.")
         # Sensible tuned hyperparameters for tabular delay forecasting
         n_est = kwargs.get("n_estimators", 120)
         lr = kwargs.get("learning_rate", 0.05)

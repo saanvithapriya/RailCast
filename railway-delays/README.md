@@ -1,101 +1,143 @@
-# Mining Cascading Delays in the Indian Railways Network
+# RailCast — Railway Network Intelligence
 
-This project models the Indian Railways network as a graph (stations and junctions as nodes, train routes as edges), mines how delays propagate and cascade through junctions, and builds models that predict downstream delays 1-6 hours ahead. It combines graph analysis (NetworkX), classical machine learning (scikit-learn, XGBoost, LightGBM), graph neural networks (PyTorch Geometric), and an interactive Streamlit app for exploring results.
+RailCast is a railway network analytics and delay intelligence system for Indian Railways. It models high-density trunk routes as directed graphs (stations and junctions as nodes, block sections as edges), identifies how delays propagate through junctions, and predicts downstream arrival delays 1 to 6 hours ahead using strictly observable pre-cutoff states.
 
-> Status: Phase 0 (project setup) only. No analysis or modelling code yet.
+> **Illustrative Data Disclosure:** RailCast currently uses simulated railway data based on the Corridor B (New Delhi to Pt. Deen Dayal Upadhyaya Jn) timetable. Results are illustrative and are not live Indian Railways operational data.
 
-## Folder layout
+---
+
+## Key Features
+
+- **🌐 Network Overview:** High-level summary of Corridor B physical topology (108 stations, 214 directed sections, 794.2 km), physical trunk segments, active passenger services, and baseline delay distributions.
+- **🗺️ Railway Network Explorer:** Searchable station directory and inspector detailing chain distances from New Delhi, junction classifications, and corridor segment groupings.
+- **⚡ Delay Insights & Downstream Forecasting:**
+  - **Critical Chokepoint Identification:** Ranked bottleneck sections (such as `ETW-EKL` and `CNB-CNBI`) responsible for the highest primary delay propagation.
+  - **Multi-Horizon Forecasting:** Predict downstream arrival delays across 1h, 2h, 3h, 4h, 5h, and 6h horizons using machine learning models trained on pre-cutoff observables.
+  - **Operational Interpretations:** Contextual insights explaining whether delays compound or stabilize based on headway coupling and weather conditions.
+
+---
+
+## Project Structure
 
 ```
 railway-delays/
 ├── data/
-│   ├── raw/            # original downloaded data (git-ignored)
-│   └── processed/      # cleaned / derived data (git-ignored)
-├── notebooks/          # exploration and environment checks
+│   ├── raw/            # Timetable and station data
+│   └── processed/      # Cleaned graph data, simulations, and trained model bundles
 ├── src/
-│   ├── data/           # loading and cleaning
-│   ├── graph/          # network construction
-│   ├── analysis/       # delay-propagation mining
-│   ├── models/         # prediction models
-│   └── app/            # Streamlit app
-├── reports/            # figures and write-ups
-├── README.md
-├── requirements.txt
-└── .gitignore
+│   ├── app/            # Web application server, static UI, and Streamlit app
+│   │   ├── static/     # Clean single-page application (HTML/CSS/JS)
+│   │   ├── server.py   # Production HTTP server and REST API
+│   │   ├── streamlit_app.py # Streamlit multi-page dashboard
+│   │   └── data_loader.py   # Cached data access layer
+│   ├── data/           # Timetable cleaning and validation
+│   ├── graph/          # Station and timetable network construction
+│   ├── simulation/     # Train movement and delay propagation engine
+│   ├── analysis/       # Cascade mining and propagation algorithms
+│   └── models/         # Multi-horizon feature pipelines and predictors
+├── reports/            # Analysis summaries and figures
+├── tests/              # Comprehensive automated regression suite
+├── requirements.txt    # Pinned Python dependencies
+└── README.md
 ```
 
-## Setup (Windows 11, PowerShell)
+---
+
+## Setup & Installation
+
+### Prerequisites
+- Python 3.10+ (tested on Python 3.13)
+- Windows 11 / Linux / macOS
+
+### Installation (Windows PowerShell)
 
 ```powershell
 cd railway-delays
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-# If activation is blocked:  Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+# If PowerShell script execution is restricted:
+# Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-`requirements.txt` pins the exact versions used. PyTorch is the CPU build; if `pip install -r requirements.txt` cannot find it, install it explicitly first:
-
+*Note on PyTorch:* If installing on CPU:
 ```powershell
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install torch_geometric
 ```
 
-Verify the environment by running `notebooks/00_setup_check.ipynb`:
+---
+
+## Running the Application
+
+RailCast offers two user interfaces:
+
+### Option 1: Web Application & REST API (Recommended)
+Launches the built-in HTTP service with the streamlined single-page interface:
+```powershell
+python -m src.app.server --port 8501
+```
+- Open browser at: **`http://localhost:8501`**
+- Includes REST API endpoints (`/api/status`, `/api/stations`, `/api/trains`, `/api/critical_sections`, `/api/predict`).
+
+### Option 2: Interactive Streamlit Dashboard
+Launches the Streamlit application:
+```powershell
+python -m streamlit run src/app/streamlit_app.py
+```
+- Open browser at: **`http://localhost:8501`**
+
+---
+
+## Preparing Data & Models (Reproducibility)
+
+Precomputed artifacts and model bundles are included in `data/processed/`. If you wish to re-generate the pipeline from scratch:
+
+1. **Clean and Validate Timetable:**
+   ```powershell
+   python -m src.data.clean
+   python -m src.data.validate
+   ```
+
+2. **Run Train Simulation & Disruptions:**
+   ```powershell
+   python -m src.simulation.scenarios
+   ```
+
+3. **Construct Network Graphs:**
+   ```powershell
+   python -m src.graph.build
+   ```
+
+4. **Train Multi-Horizon Delay Forecasting Pipeline:**
+   ```powershell
+   python -m src.models.run_pipeline --stride 4
+   ```
+
+5. **Verify Inference CLI:**
+   ```powershell
+   python -m src.models.predict --sample
+   ```
+
+---
+
+## Testing & Quality Assurance
+
+The project includes an extensive test suite verifying train movement mechanics, graph topology, cascade mining invariance, anti-leakage compliance, model inference, server endpoints, and app interfaces:
 
 ```powershell
-jupyter notebook notebooks/00_setup_check.ipynb
+pytest
 ```
 
-## Phase 2: cleaned Corridor B timetable
+**Test Status:** 121 passed, 6 skipped (cleanly skipped when multi-gigabyte raw simulation tables are omitted).
 
-```powershell
-python -m src.data.clean      # writes data/processed/*.parquet + csv and reports/phase2_cleaning_log.md
-python -m src.data.validate   # exits non-zero if any check fails
-```
+---
 
-Rules, counts and known data problems are in `reports/phase2_cleaning_log.md`.
+## Known Assumptions & Limitations
 
-## Synthetic data
-
-> **All delay data produced by `src/simulation` is SIMULATED.** No open dataset of real Indian Railways delays exists for this project, so the simulator runs the real (old, pre-2018) Corridor B timetable through a train-movement model and injects random disruptions. Findings from it say whether mining and prediction methods work in a world we designed, not how Indian Railways behaves.
-
-```powershell
-python -m pytest tests -q                      # unit tests for the movement rules and delay sources
-python -m src.simulation.pilot                 # January + June 2025 pilot -> data/processed/sim_pilot/
-python -m src.simulation.scenarios             # low / medium / high congestion, full 2025 -> data/processed/sim/
-```
-
-Parameters live in `src/simulation/config.yaml` (seed 42); the design is in `reports/phase2b_simulator_design.md`.
-
-**What is modelled:** one lane per direction between consecutive core stations, a minimum headway, no passing inside a section, priority yielding and overtaking only at junctions or real halts, slack recovery and shortened halts, rake reuse between a train and its return service, random freight blockers, section incidents (heavy tailed), halt extensions, block/signal disruptions, synthetic fog/rain (swappable weather source) and an unknown incoming delay for trains that enter mid-route. Every delay minute is labelled with its cause, causing train and root event (`delay_attribution`).
-
-**This world is cascade-heavy compared with the real corridor.** In the simulated data more than half of all delay minutes (about 59-75% depending on the scenario) are caused by trains waiting for, or yielding to, other trains, and queues of up to 17-20 trains form over a year and every section sees queues of 3 or more. The real corridor is very likely less coupled than this. Reasons: (1) the timetable has no day-of-week information, so every train runs every day, which makes traffic much denser than it really is; (2) the model has one lane per direction between stations, no passing inside a section and no signalling blocks, loops or parallel lines beyond the loop-capacity rule, so a delayed train directly holds up those behind it; (3) there is no real slack or recovery data, so recovery is a flat 5-8% of section time; (4) freight is random noise. Treat cascade counts, queue lengths and "share of delay caused by other trains" from this data as properties of the simulator, not estimates for Indian Railways.
-
-**Key assumptions and limitations**
-- Every train runs daily (the timetable has no day-of-week information). Pairs of trains the timetable itself schedules closer than the headway keep their scheduled spacing, otherwise the daily assumption alone creates large artificial delays.
-- Scheduled times at pass-through stations are interpolated between real halts; raw times are kept in `raw_scheduled_*`.
-- Prayagraj (ALD, NYN, COI) is one node; the 39 trains that leave the main line use a fixed-time off-corridor leg.
-- Priority trains can overtake at any station with limited loop capacity (2 trains held aside, 2-minute penalty); the earlier junction-or-halt rule is available as `movement.overtake_mode`.
-- The yield look-ahead is one section (`movement.yield_lookback_sections: 1`); two sections was tried once and made results worse. Four Shatabdi trains (12033, 12003 mainly) are delayed more than their priority suggests; this is a known model artifact.
-- No platform capacity, crews or locomotives.
-- The Kanchausi to Para Jani Halt segment (0.12 km apart, 16-22 minutes in the timetable) is a data quirk, not a bottleneck.
-- Parameters were set by hand and not fitted to real data; the check targets (70-85% within 10 minutes, 15-35% of delay caused by other trains) are assumptions and are not met.
-
-**Scenarios (calendar 2025, written to `data/processed/sim/{low,medium,high}/`):** headway 3 / 4 / 6 minutes with freight 0.02 / 0.04 / 0.06 per section-hour, everything else equal, same seed and weather. Run with `python -m src.simulation.scenarios`. Summary table in `reports/phase2b_simulator_design.md` section 13.
-
-## Graphs (Phase 3)
-
-`python -m src.graph.build` builds the Corridor B graphs into `data/processed/graph/`: a station graph (108 nodes, 214 directed edges, Prayagraj merged into one node), a train-dependency graph (timetable only), delay attributes for the training window (Jan-Aug 2025) and for all of 2025 (analysis only), and a snapshot lookup. Delay-based parts use the **SIMULATED** medium scenario. The ground-truth cascade tables (`data/processed/sim/medium/groundtruth_cascades*.parquet`) are **for Phase 5 validation only**; no mining or prediction method may read them. Details: `reports/phase3_graph_notes.md`; visuals: `notebooks/04_graphs.ipynb`.
-
-## Time split and simulated data sources
-
-Defined once in `configs/splits.yaml` (read through `src/splits.py`): **train = all of 2024 + Jan-Aug 2025, validation = Sep-Oct 2025, test = Nov-Dec 2025**, strictly by time. The medium scenario is two simulation runs of the same timetable: 2025 (seed 42, `data/processed/sim/medium/`) and 2024 (seed 2024, `data/processed/sim/medium_2024/`, made with `python -m src.simulation.scenarios --medium-2024`). Weather and incidents differ between the runs; the timetable, headway and every other parameter are the same, so it is the same simulated world twice, not two real years. Fog is synthetic and falls in Nov-Feb: the training window contains full fog seasons (48 fog days), the validation window has none, the test window has 10 (all in December). Details: `reports/phase3_graph_notes.md`, section 7.
-
-**Rolling-origin folds** (also in `configs/splits.yaml`): fold 1 trains on 2024-01-01..2024-10-31 and validates on Nov-Dec 2024 (12 fog days); fold 2 trains on 2024-01-01..2025-08-31 and validates on Sep-Oct 2025 (no fog). Select models on the mean over both folds and report fog performance separately; the test window (Nov-Dec 2025) is untouched. See `reports/phase3_graph_notes.md`, section 8.
-
-## Exploratory analysis (Phase 4)
-
-`notebooks/05_eda.ipynb` and `reports/phase4_findings.md` explore the SIMULATED medium-scenario delays. Decisions about modelling use only 2024-01-01..2024-10-31 (fold 1's training range); later months of the training window appear only in descriptive plots; validation fold 2 and the test window are never loaded. Helpers: `src/analysis/eda.py` (tests in `tests/test_eda_guard.py` check the window and that no label tables or columns are read).
+- **Simulated Delays:** No open dataset of minute-level operational Indian Railways delays is publicly available. Delay cascades are simulated using a train-movement engine running on the pre-2018 Corridor B timetable.
+- **Daily Running Assumption:** Because the historical timetable lacks day-of-week metadata, all 225 passenger trains run daily in the simulation, creating denser traffic than real-world conditions.
+- **Strict Single-Lane Movement:** The simulation models one lane per direction between consecutive core stations with a strict 4-minute minimum headway. In reality, Indian Railways utilizes dynamic loop lines, multi-aspect signaling blocks, and dispatch overrides.
+- **Illustrative Results:** Predictions demonstrate machine learning and graph mining capabilities on networked infrastructure; they should not be used for actual railway operations.

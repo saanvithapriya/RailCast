@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RailCast — Railway Network Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --bg-sidebar: #0e1526;
+      --bg-card: #131b2e;
+      --bg-card-hover: #18223a;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.25);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #6366f1;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Sidebar Navigation */
+    #sidebar {
+      width: 270px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 24px 20px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: var(--radius-md);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+
+    .nav-item.active {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid var(--border-accent);
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      font-size: 17px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+    }
+
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 11.5px;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    .sidebar-footer .context-box {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .sidebar-footer .context-title {
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Content Area */
+    #main-content {
+      flex: 1;
+      padding: 28px 36px;
+      overflow-y: auto;
+      max-width: 1360px;
+      margin: 0 auto;
+      width: calc(100% - 270px);
+    }
+
+    /* Clean Header Banner */
+    .app-header {
+      background: linear-gradient(90deg, #0e172a 0%, #152238 100%);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+
+    .app-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.4px;
+      margin-bottom: 4px;
+    }
+
+    .app-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Page Sections */
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Grids & Cards */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .metric-label {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    .metric-help {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .content-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    thead th {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: #cbd5e1;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Risk Badges */
+    .tag-risk-extreme {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .tag-risk-high {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .tag-junction {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Forms & Inputs */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    select, input[type="text"], input[type="number"] {
+      width: 100%;
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    select:focus, input[type="text"]:focus, input[type="number"]:focus {
+      border-color: var(--accent-blue);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #0369a1;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Predictions Display */
+    .prediction-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .pred-card {
+      background: #0d1527;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px 12px;
+      text-align: center;
+    }
+
+    .pred-horizon {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .pred-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 2px;
+    }
+
+    .pred-delta {
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    /* SVG Trajectory Chart */
+    .trajectory-chart {
+      background: #090e1c;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 180px;
+    }
+
+    /* Figure Images */
+    .fig-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      background: #090e1b;
+      border: 1px solid var(--border-subtle);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .fig-caption {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Truthful Disclosure Footer */
+    .disclosure-footer {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .prediction-grid { grid-template-columns: repeat(3, 1fr); }
+      #main-content { padding: 20px; width: 100%; }
+      #sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Sidebar -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-title">
+        <span>🚆</span> RailCast
+      </div>
+      <div class="brand-sub">Railway Network Intelligence</div>
+    </div>
+
+    <ul class="nav-list">
+      <li id="nav-overview" class="nav-item active" onclick="switchPage('overview')">
+        <span class="nav-icon">🌐</span>
+        <span>Overview</span>
+      </li>
+      <li id="nav-railway-network" class="nav-item" onclick="switchPage('railway-network')">
+        <span class="nav-icon">🗺️</span>
+        <span>Railway Network</span>
+      </li>
+      <li id="nav-delay-insights" class="nav-item" onclick="switchPage('delay-insights')">
+        <span class="nav-icon">⚡</span>
+        <span>Delay Insights</span>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="context-box">
+        <div class="context-title">Corridor Context</div>
+        <div>Route: NDLS – MGS (794.2 km)</div>
+        <div>Stations: 108 nodes</div>
+        <div>Sections: 214 directed blocks</div>
+      </div>
+      <div>
+        RailCast currently uses simulated railway data. Results are illustrative and are not live Indian Railways operational data.
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+    
+    <!-- Clean Header Banner -->
+    <header class="app-header">
+      <h1 class="app-title">RailCast — Railway Network Intelligence</h1>
+      <p class="app-subtitle">
+        Explore railway connectivity, understand delay propagation, and predict downstream delays.
+      </p>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- Section 1: Overview -->
+    <!-- ===================================================================== -->
+    <section id="page-overview" class="page-section active">
+      <!-- 4 Summary Metric Cards -->
+      <div class="grid-4">
+        <div class="metric-card">
+          <div class="metric-label">Railway Stations</div>
+          <div class="metric-value">108</div>
+          <div class="metric-help">Corridor B main trunk stations</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Connected Sections</div>
+          <div class="metric-value">214</div>
+          <div class="metric-help">Unidirectional Up/Down block sections</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Trains Represented</div>
+          <div class="metric-value">225</div>
+          <div class="metric-help">Active timetable train services</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Delay Cascades Identified</div>
+          <div class="metric-value">12,518</div>
+          <div class="metric-help">Propagation cascade trees analyzed</div>
+        </div>
+      </div>
+
+      <!-- Route Overview Table -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">Corridor B Route Segments (794.2 km)</h2>
+          <span class="card-badge">Northern & North Central Railway</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Segment</th>
+                <th>Span</th>
+                <th>Distance</th>
+                <th>Stations</th>
+                <th>Junctions</th>
+                <th>Traffic Characteristics</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>NDLS – TDL</strong></td>
+                <td>New Delhi to Tundla Jn</td>
+                <td>218.0 km</td>
+                <td>11</td>
+                <td>5</td>
+                <td><span class="tag-risk-high">High traffic (suburban commuter & freight merge)</span></td>
+              </tr>
+              <tr>
+                <td><strong>TDL – ETW</strong></td>
+                <td>Tundla Jn to Etawah Jn</td>
+                <td>89.7 km</td>
+                <td>7</td>
+                <td>2</td>
+                <td><span class="tag-junction">Moderate traffic coupling</span></td>
+              </tr>
+              <tr>
+                <td><strong>ETW – CNB</strong></td>
+                <td>Etawah Jn to Kanpur Central</td>
+                <td>135.8 km</td>
+                <td>14</td>
+                <td>2</td>
+                <td><span class="tag-risk-extreme">High coupling; primary bottleneck zone (ETW-EKL)</span></td>
+              </tr>
+              <tr>
+                <td><strong>CNB – PRYG</strong></td>
+                <td>Kanpur Central to Prayagraj Jn</td>
+                <td>197.6 km</td>
+                <td>11</td>
+                <td>2</td>
+                <td><span class="tag-risk-high">High-density main line trunk</span></td>
+              </tr>
+              <tr>
+                <td><strong>PRYG – MGS</strong></td>
+                <td>Prayagraj Jn to Pt. DDU Jn</td>
+                <td>153.1 km</td>
+                <td>9</td>
+                <td>3</td>
+                <td><span class="tag-risk-high">High freight and eastern trunk connections</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Key Operational Insights -->
+      <div class="grid-3">
+        <div class="metric-card">
+          <div class="metric-label" style="color: var(--accent-blue); font-weight: 600;">🔗 Delay Inheritance</div>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+            Delays along Corridor B are predominantly inherited rather than newly generated in open sections. Strict headway constraints mean a delayed lead train directly impedes follower services.
+          </p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label" style="color: #fbbf24; font-weight: 600;">⚠️ Critical Chokepoints</div>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+            Propagation cascades heavily concentrate around Etawah–Ekdil (<code style="color: #38bdf8;">ETW-EKL</code>) and Kanpur–Chandari (<code style="color: #38bdf8;">CNB-CNBI</code>). Priority at these nodes yields network-wide relief.
+          </p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label" style="color: #fb7185; font-weight: 600;">🌫️ Weather & Congestion Regimes</div>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+            Under dense winter fog or high traffic congestion, downstream cascade propagation increases significantly, multiplying delay persistence across 1 to 6 hours ahead.
+          </p>
+        </div>
+      </div>
+
+      <!-- Overall Delay Distribution Visual -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">Corridor Delay Distribution</h2>
+          <span class="card-badge">Network Summary</span>
+        </div>
+        <img class="fig-img" src="/reports/figures/eda_01_overall.png" alt="Overall Delay Distribution" onerror="this.style.display='none'">
+        <div class="fig-caption">Delay distributions across Corridor B stations</div>
+      </div>
+
+      <!-- Call to Action Buttons -->
+      <div style="display: flex; gap: 14px; margin-top: 10px;">
+        <button class="btn-primary" onclick="switchPage('railway-network')">
+          <span>🗺️ Explore Railway Network</span>
+        </button>
+        <button class="btn-secondary" onclick="switchPage('delay-insights')">
+          <span>⚡ Inspect Delay Insights & Predictions</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- Section 2: Railway Network -->
+    <!-- ===================================================================== -->
+    <section id="page-railway-network" class="page-section">
+      <!-- Station Inspector Card -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">Station Directory & Inspector</h2>
+          <span class="card-badge">Interactive Lookup</span>
+        </div>
+
+        <div class="grid-3">
+          <div class="form-group">
+            <label for="station-select">Select Station to Inspect:</label>
+            <select id="station-select" onchange="updateStationCard()">
+              <!-- Populated dynamically via /api/stations -->
+            </select>
+          </div>
+          <div class="metric-card" style="margin: 0;">
+            <div class="metric-label">Chain Distance from New Delhi</div>
+            <div class="metric-value" id="st-km" style="font-size: 22px;">0.0 km</div>
+            <div class="metric-help" id="st-segment">NDLS-TDL Segment</div>
+          </div>
+          <div class="metric-card" style="margin: 0;">
+            <div class="metric-label">Junction Station?</div>
+            <div class="metric-value" id="st-junction" style="font-size: 22px; color: #38bdf8;">Yes</div>
+            <div class="metric-help" id="st-desc">Primary Railway Junction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Searchable Station Table -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">Corridor B Station Directory</h2>
+          <span class="card-badge" id="station-count-badge">Loading...</span>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="form-group" style="margin: 0; min-width: 260px; flex: 1;">
+            <input type="text" id="station-search" placeholder="🔍 Search by station name or code (e.g. Kanpur, TDL, ETW)..." oninput="filterStationsTable()">
+          </div>
+          <div class="form-group" style="margin: 0; width: 220px;">
+            <select id="segment-filter" onchange="filterStationsTable()">
+              <option value="ALL">All Segments</option>
+              <option value="NDLS-TDL">NDLS – TDL (0–218 km)</option>
+              <option value="TDL-ETW">TDL – ETW (218–308 km)</option>
+              <option value="ETW-CNB">ETW – CNB (308–444 km)</option>
+              <option value="CNB-PRYG">CNB – PRYG (444–641 km)</option>
+              <option value="PRYG-MGS">PRYG – MGS (641–794 km)</option>
+            </select>
+          </div>
+          <button class="btn-secondary" onclick="resetStationFilters()">Reset Filters</button>
+        </div>
+
+        <div class="table-container">
+          <table id="stations-table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Station Name</th>
+                <th>Chainage (km)</th>
+                <th>Classification</th>
+                <th>Corridor Segment</th>
+              </tr>
+            </thead>
+            <tbody id="stations-tbody">
+              <!-- Populated via /api/stations -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Network Weather Regime Figure -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">Network Delay vs Weather Regimes</h2>
+          <span class="card-badge">Corridor Patterns</span>
+        </div>
+        <img class="fig-img" src="/reports/figures/eda_05_weather.png" alt="Delay vs Weather" onerror="this.style.display='none'">
+        <div class="fig-caption">Station delay variations across normal vs winter weather regimes</div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- Section 3: Delay Insights & Downstream Prediction -->
+    <!-- ===================================================================== -->
+    <section id="page-delay-insights" class="page-section">
+      <!-- Interactive Forecaster Card -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">🔮 Downstream Delay Forecaster</h2>
+          <span class="card-badge" id="model-status-badge">Model Ready</span>
+        </div>
+
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
+          Select an active train service, current location, and observed delay to forecast arrival delays from <strong>1 to 6 hours ahead</strong>.
+        </p>
+
+        <form id="prediction-form" onsubmit="event.preventDefault(); runPrediction();">
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="pred-train">Train Service:</label>
+              <select id="pred-train">
+                <!-- Populated via /api/trains -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pred-station">Current Observed Station:</label>
+              <select id="pred-station">
+                <!-- Populated dynamically via /api/stations -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pred-current-delay">Current Observed Delay (minutes):</label>
+              <input type="number" id="pred-current-delay" value="25.0" min="0" max="720" step="1" required>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="pred-fog">Weather Condition:</label>
+              <select id="pred-fog">
+                <option value="0">Normal Weather (Clear / Rain)</option>
+                <option value="1">Winter Fog (Visibility < 500m)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pred-congestion">Active Surrounding Trains (30m):</label>
+              <select id="pred-congestion">
+                <option value="3">Low Congestion (3 trains)</option>
+                <option value="6" selected>Moderate Congestion (6 trains)</option>
+                <option value="12">High Congestion (12 trains)</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: flex-end;">
+              <button type="submit" id="btn-predict" class="btn-primary" style="width: 100%;">
+                <span>🚀 Generate Downstream Forecast</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Prediction Result Container -->
+        <div id="prediction-results" style="margin-top: 24px;">
+          <div class="card-header">
+            <h3 class="card-title" style="font-size: 15px;">Forecast Across 1 to 6 Hours Ahead</h3>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-secondary" onclick="exportPredictions('csv')">📥 Export CSV</button>
+              <button class="btn-secondary" onclick="exportPredictions('json')">📥 Export JSON</button>
+            </div>
+          </div>
+
+          <div class="prediction-grid" id="pred-cards-container">
+            <!-- Populated dynamically via JS -->
+          </div>
+
+          <!-- Trajectory Chart -->
+          <div class="trajectory-chart">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 12.5px; font-weight: 600; color: #94a3b8;">Forecast Trajectory vs Initial Delay</span>
+              <span style="font-size: 11px; color: #38bdf8;" id="chart-model-label">Multi-Horizon Inference</span>
+            </div>
+            <svg id="trajectory-svg" class="chart-svg"></svg>
+          </div>
+
+          <div id="pred-explanation" style="font-size: 13px; color: var(--text-muted); margin-top: 14px; padding: 12px 14px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Critical Bottlenecks Table -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">Top Critical Cascade Origin Sections</h2>
+          <span class="card-badge">Delay Propagation Bottlenecks</span>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+          Sections with the highest frequency of initiating cascading delays across subsequent trains. Proactive dispatching at these locations provides the highest corridor-wide delay reduction.
+        </p>
+        <div class="table-container">
+          <table id="critical-sections-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Section</th>
+                <th>Direction</th>
+                <th>Cascade Events</th>
+                <th>Primary Delay</th>
+                <th>Risk Level</th>
+              </tr>
+            </thead>
+            <tbody id="critical-sections-tbody">
+              <!-- Populated via /api/critical_sections -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Cascade Size & Duration Visual -->
+      <div class="content-card">
+        <div class="card-header">
+          <h2 class="card-title">Cascade Propagation Distributions</h2>
+          <span class="card-badge">Propagation Dynamics</span>
+        </div>
+        <img class="fig-img" src="/reports/figures/mining_04_cascade_distributions.png" alt="Cascade Distributions" onerror="this.style.display='none'">
+        <div class="fig-caption">Propagation cascade tree size, depth, and cumulative delay distributions</div>
+      </div>
+    </section>
+
+    <!-- Footer Disclosure -->
+    <footer class="disclosure-footer">
+      <div>RailCast currently uses simulated railway data. Results are illustrative and are not live Indian Railways operational data.</div>
+      <div>Corridor B Network Intelligence</div>
+    </footer>
+
+  </main>
+
+  <script>
+    let allStations = [];
+    let currentPredictions = [];
+
+    // Initialize application and fetch REST API data
+    async function initApp() {
+      await Promise.all([
+        fetchStations(),
+        fetchTrains(),
+        fetchCriticalSections()
+      ]);
+      runPrediction();
+    }
+
+    // Navigation page switching
+    function switchPage(pageId) {
+      // Map legacy ids if needed
+      const pageMap = {
+        'overview': 'page-overview',
+        'network-overview': 'page-overview',
+        'railway-network': 'page-railway-network',
+        'network-explorer': 'page-railway-network',
+        'delay-insights': 'page-delay-insights',
+        'cascade-mining': 'page-delay-insights',
+        'delay-prediction': 'page-delay-insights'
+      };
+
+      const targetId = pageMap[pageId] || 'page-overview';
+
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      const targetSec = document.getElementById(targetId);
+      if (targetSec) targetSec.classList.add('active');
+
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+      if (targetId === 'page-overview') {
+        document.getElementById('nav-overview')?.classList.add('active');
+      } else if (targetId === 'page-railway-network') {
+        document.getElementById('nav-railway-network')?.classList.add('active');
+      } else if (targetId === 'page-delay-insights') {
+        document.getElementById('nav-delay-insights')?.classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Fetch stations from backend REST API
+    async function fetchStations() {
+      try {
+        const resp = await fetch("/api/stations");
+        if (resp.ok) {
+          const data = await resp.json();
+          allStations = data.stations || [];
+          populateStationsUI(allStations);
+          return;
+        }
+      } catch (e) {
+        console.error("Failed to load /api/stations:", e);
+      }
+    }
+
+    // Populate station dropdowns & directory table
+    function populateStationsUI(stations) {
+      const predSelect = document.getElementById("pred-station");
+      const inspectorSelect = document.getElementById("station-select");
+      predSelect.innerHTML = "";
+      inspectorSelect.innerHTML = "";
+
+      stations.forEach(st => {
+        const opt1 = document.createElement("option");
+        opt1.value = st.code;
+        opt1.textContent = `${st.code} - ${st.name}`;
+        if (st.code === "ETW") opt1.selected = true;
+        predSelect.appendChild(opt1);
+
+        const opt2 = document.createElement("option");
+        opt2.value = st.code;
+        opt2.textContent = `${st.code} - ${st.name} (${st.km} km)`;
+        if (st.code === "NDLS") opt2.selected = true;
+        inspectorSelect.appendChild(opt2);
+      });
+
+      renderStationsTable(stations);
+      updateStationCard();
+    }
+
+    // Render stations table
+    function renderStationsTable(stations) {
+      const tbody = document.getElementById("stations-tbody");
+      tbody.innerHTML = "";
+
+      stations.forEach(st => {
+        const tr = document.createElement("tr");
+        const typeBadge = st.is_junction ? '<span class="tag-junction">Junction</span>' : '<span style="color: #64748b;">Through</span>';
+        tr.innerHTML = `
+          <td><strong>${st.code}</strong></td>
+          <td>${st.name}</td>
+          <td>${st.km.toFixed(1)} km</td>
+          <td>${typeBadge}</td>
+          <td>${st.segment}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      const badge = document.getElementById("station-count-badge");
+      if (badge) badge.textContent = `${stations.length} Station Nodes`;
+    }
+
+    // Filter stations table
+    function filterStationsTable() {
+      const search = (document.getElementById("station-search").value || "").toLowerCase().trim();
+      const seg = document.getElementById("segment-filter").value;
+
+      const filtered = allStations.filter(st => {
+        const matchSearch = !search || st.name.toLowerCase().includes(search) || st.code.toLowerCase().includes(search);
+        const matchSeg = (seg === "ALL") || (st.segment === seg);
+        return matchSearch && matchSeg;
+      });
+
+      renderStationsTable(filtered);
+    }
+
+    function resetStationFilters() {
+      document.getElementById("station-search").value = "";
+      document.getElementById("segment-filter").value = "ALL";
+      renderStationsTable(allStations);
+    }
+
+    // Update station card in inspector
+    function updateStationCard() {
+      const code = document.getElementById("station-select").value;
+      const st = allStations.find(s => s.code === code);
+      if (!st) return;
+
+      document.getElementById("st-km").textContent = `${st.km.toFixed(1)} km`;
+      document.getElementById("st-segment").textContent = `${st.segment} Segment`;
+      document.getElementById("st-junction").textContent = st.is_junction ? "Yes" : "No";
+      document.getElementById("st-junction").style.color = st.is_junction ? "#38bdf8" : "#94a3b8";
+      document.getElementById("st-desc").textContent = st.is_junction ? "Primary Railway Junction" : "Intermediate Station";
+    }
+
+    // Fetch trains from backend REST API
+    async function fetchTrains() {
+      try {
+        const resp = await fetch("/api/trains");
+        if (resp.ok) {
+          const data = await resp.json();
+          const select = document.getElementById("pred-train");
+          select.innerHTML = "";
+          (data.trains || []).forEach(tr => {
+            const opt = document.createElement("option");
+            opt.value = tr.number;
+            opt.textContent = `${tr.number} - ${tr.name} (${tr.type})`;
+            if (tr.number === 12302) opt.selected = true;
+            select.appendChild(opt);
+          });
+        }
+      } catch (e) {
+        console.error("Failed to load /api/trains:", e);
+      }
+    }
+
+    // Fetch critical sections from backend REST API
+    async function fetchCriticalSections() {
+      try {
+        const resp = await fetch("/api/critical_sections");
+        if (resp.ok) {
+          const data = await resp.json();
+          const tbody = document.getElementById("critical-sections-tbody");
+          tbody.innerHTML = "";
+          (data.critical_sections || []).forEach(sec => {
+            const tr = document.createElement("tr");
+            const riskClass = sec.risk === "Extreme" ? "tag-risk-extreme" : "tag-risk-high";
+            tr.innerHTML = `
+              <td><strong>#${sec.rank}</strong></td>
+              <td><strong>${sec.section}</strong></td>
+              <td>${sec.direction}</td>
+              <td>${sec.origin_cascades}</td>
+              <td>${sec.primary_delay_min.toLocaleString()} min</td>
+              <td><span class="${riskClass}">${sec.risk}</span></td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      } catch (e) {
+        console.error("Failed to load /api/critical_sections:", e);
+      }
+    }
+
+    // Run prediction via POST /api/predict
+    async function runPrediction() {
+      const train = parseInt(document.getElementById("pred-train")?.value || "12302");
+      const station = document.getElementById("pred-station")?.value || "ETW";
+      const currentDelay = parseFloat(document.getElementById("pred-current-delay")?.value || "25.0");
+      const isFog = parseInt(document.getElementById("pred-fog")?.value || "0");
+      const congestion = parseInt(document.getElementById("pred-congestion")?.value || "6");
+
+      const container = document.getElementById("pred-cards-container");
+      container.innerHTML = '<div style="grid-column: 1 / -1; padding: 20px; text-align: center; color: #94a3b8;">Computing downstream forecast...</div>';
+
+      try {
+        const resp = await fetch("/api/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            train: train,
+            station: station,
+            current_delay: currentDelay,
+            fog_flag: isFog,
+            rolling_active_trains_30m: congestion
+          })
+        });
+
+        if (resp.ok) {
+          const data = await resp.json();
+          currentPredictions = data.predictions || [];
+          document.getElementById("chart-model-label").textContent = `Inference: ${data.model_type?.toUpperCase() || 'MULTI-HORIZON'}`;
+          renderPredictionCards(currentPredictions, currentDelay);
+          renderTrajectoryChart(currentPredictions, currentDelay);
+          renderExplanation(currentPredictions, currentDelay, station, isFog);
+          return;
+        } else {
+          const err = await resp.json();
+          container.innerHTML = `<div style="grid-column: 1 / -1; color: #f43f5e; padding: 16px;">Error: ${err.error || "Inference failed"}</div>`;
+        }
+      } catch (e) {
+        container.innerHTML = `<div style="grid-column: 1 / -1; color: #f43f5e; padding: 16px;">Network error connecting to API server: ${e.message}</div>`;
+      }
+    }
+
+    // Render cards
+    function renderPredictionCards(preds, currentDelay) {
+      const container = document.getElementById("pred-cards-container");
+      container.innerHTML = "";
+
+      preds.forEach(p => {
+        const h = p.horizon_hours;
+        const val = p.predicted_delay_min;
+        const delta = p.delta_min !== undefined ? p.delta_min : (val - currentDelay);
+        const deltaStr = delta >= 0 ? `+${delta.toFixed(1)}m` : `${delta.toFixed(1)}m`;
+        const deltaColor = delta > 0.5 ? "#f43f5e" : delta < -0.5 ? "#10b981" : "#94a3b8";
+
+        const card = document.createElement("div");
+        card.className = "pred-card";
+        card.innerHTML = `
+          <div class="pred-horizon">${h} Hour${h > 1 ? 's' : ''}</div>
+          <div class="pred-value">${val.toFixed(1)} <span style="font-size: 13px; font-weight: 500; color: #94a3b8;">m</span></div>
+          <div class="pred-delta" style="color: ${deltaColor};">${deltaStr}</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Render clean SVG trajectory chart
+    function renderTrajectoryChart(preds, currentDelay) {
+      const svg = document.getElementById("trajectory-svg");
+      svg.innerHTML = "";
+
+      const width = svg.clientWidth || 700;
+      const height = 180;
+      const padding = { top: 20, right: 35, bottom: 35, left: 45 };
+
+      const points = [{ h: 0, delay: currentDelay }, ...preds.map(p => ({ h: p.horizon_hours, delay: p.predicted_delay_min }))];
+      const maxDelay = Math.max(...points.map(p => p.delay), 30) * 1.15;
+
+      const xScale = h => padding.left + (h / 6) * (width - padding.left - padding.right);
+      const yScale = d => height - padding.bottom - (d / maxDelay) * (height - padding.top - padding.bottom);
+
+      // Gridlines & Axes
+      let gridHtml = '';
+      for (let i = 0; i <= 4; i++) {
+        const dVal = (maxDelay / 4) * i;
+        const yPos = yScale(dVal);
+        gridHtml += `<line x1="${padding.left}" y1="${yPos}" x2="${width - padding.right}" y2="${yPos}" stroke="rgba(255,255,255,0.06)" />`;
+        gridHtml += `<text x="${padding.left - 8}" y="${yPos + 4}" fill="#64748b" font-size="10" text-anchor="end">${Math.round(dVal)}m</text>`;
+      }
+
+      // Horizon ticks
+      for (let h = 0; h <= 6; h++) {
+        const xPos = xScale(h);
+        gridHtml += `<text x="${xPos}" y="${height - 10}" fill="#94a3b8" font-size="11" text-anchor="middle">${h === 0 ? 'Now' : h + 'h'}</text>`;
+      }
+
+      // Path
+      let pathD = `M ${xScale(points[0].h)} ${yScale(points[0].delay)}`;
+      for (let i = 1; i < points.length; i++) {
+        pathD += ` L ${xScale(points[i].h)} ${yScale(points[i].delay)}`;
+      }
+
+      let areaD = `${pathD} L ${xScale(6)} ${yScale(0)} L ${xScale(0)} ${yScale(0)} Z`;
+
+      let circlesHtml = points.map(pt => `
+        <circle cx="${xScale(pt.h)}" cy="${yScale(pt.delay)}" r="4" fill="#38bdf8" stroke="#0a0f1d" stroke-width="2" />
+        <text x="${xScale(pt.h)}" y="${yScale(pt.delay) - 8}" fill="#f8fafc" font-size="10.5" font-weight="600" text-anchor="middle">${pt.delay.toFixed(1)}m</text>
+      `).join('');
+
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+          </linearGradient>
+        </defs>
+        ${gridHtml}
+        <path d="${areaD}" fill="url(#chartGrad)" />
+        <path d="${pathD}" fill="none" stroke="#38bdf8" stroke-width="2" />
+        ${circlesHtml}
+      `;
+    }
+
+    // Render plain-language explanation
+    function renderExplanation(preds, currentDelay, station, isFog) {
+      const expDiv = document.getElementById("pred-explanation");
+      if (!expDiv || !preds.length) return;
+
+      const p1 = preds.find(p => p.horizon_hours === 1);
+      const p6 = preds.find(p => p.horizon_hours === 6);
+      const val1 = p1 ? p1.predicted_delay_min : currentDelay;
+      const val6 = p6 ? p6.predicted_delay_min : currentDelay;
+
+      let trendMsg = "";
+      if (val6 > currentDelay + 5) {
+        trendMsg = "Delay is projected to compound downstream due to headway constraints and traffic coupling along dense sections.";
+      } else if (val6 < currentDelay - 5) {
+        trendMsg = "Scheduled corridor slack allows partial recovery as the service proceeds downstream.";
+      } else {
+        trendMsg = "Delay is expected to remain relatively stable across subsequent corridor sections.";
+      }
+
+      expDiv.innerHTML = `
+        <strong>Operational Interpretation:</strong> Starting at <strong>${station}</strong> with an initial delay of <strong>${currentDelay.toFixed(0)} min</strong>, 
+        projected 1-hour delay is <strong>${val1.toFixed(1)} min</strong> and 6-hour delay reaches <strong>${val6.toFixed(1)} min</strong>. ${trendMsg}
+        ${isFog ? '<br><span style="color: #fbbf24;">⚠️ Winter fog regime active: Reduced visual range typically increases section running time variance.</span>' : ''}
+      `;
+    }
+
+    // Export predictions
+    function exportPredictions(format) {
+      if (!currentPredictions.length) return;
+
+      if (format === "csv") {
+        let csv = "horizon_hours,predicted_delay_min,delta_min,units\n";
+        currentPredictions.forEach(p => {
+          csv += `${p.horizon_hours},${p.predicted_delay_min},${p.delta_min || 0},minutes\n`;
+        });
+        downloadBlob(new Blob([csv], { type: "text/csv" }), "railcast_forecast.csv");
+      } else {
+        const jsonStr = JSON.stringify(currentPredictions, null, 2);
+        downloadBlob(new Blob([jsonStr], { type: "application/json" }), "railcast_forecast.json");
+      }
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    window.onload = initApp;
+  </script>
+</body>
+</html>
